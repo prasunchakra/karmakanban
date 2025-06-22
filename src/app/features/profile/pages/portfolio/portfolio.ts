@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { ProfileHeader } from '../../components/profile-header';
+import { ProfileHero } from '../../components/profile-hero';
+import { ProfileAbout } from '../../components/profile-about';
+import { ProfileSkill } from '../../components/profile-skill';
+import { ProfileProject } from '../../components/profile-project';
+import { ProfileContact } from '../../components/profile-contact';
+import { ProfileFooter } from '../../components/profile-footer';
 
 @Component({
   selector: 'app-portfolio',
   imports: [
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatToolbarModule
+    ProfileHeader,
+    ProfileHero,
+    ProfileAbout,
+    ProfileSkill,
+    ProfileProject,
+    ProfileContact,
+    ProfileFooter,
   ],
   templateUrl: './portfolio.html',
   styleUrl: './portfolio.scss'
