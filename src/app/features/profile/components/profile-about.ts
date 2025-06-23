@@ -36,7 +36,7 @@ import { MatIconModule } from '@angular/material/icon';
               </div>
               <div class="flex items-center">
                 <span class="material-icons text-indigo-600 mr-2">email</span>
-                <span class="text-gray-700">bruce&#64;example.com</span>
+                <span class="text-gray-700">john&#64;example.com</span>
               </div>
               <div class="flex items-center">
                 <span class="material-icons text-indigo-600 mr-2">location_on</span>

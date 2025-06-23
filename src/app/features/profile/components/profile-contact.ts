@@ -51,7 +51,7 @@ import { MatInputModule } from '@angular/material/input';
                   <span class="material-icons text-indigo-600 text-2xl mr-4">email</span>
                   <div>
                     <h4 class="text-gray-600 font-medium">Email</h4>
-                    <p class="text-gray-700">bruce&#64;example.com</p>
+                    <p class="text-gray-700">john&#64;example.com</p>
                   </div>
                 </div>
                 
