@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-profile-project',
   imports: [
     MatCardModule,
+    MatButtonModule,
   ],
   template: `
     <div class="container mx-auto px-6">
@@ -24,14 +26,14 @@ import { MatCardModule } from '@angular/material/card';
                 A productivity application built with Angular and Firebase that helps teams organize and prioritize work.
               </p>
               <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">Angular</span>
-                <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">Firebase</span>
-                <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">NgRx</span>
-                <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">Tailwind</span>
+                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">Angular</span>
+                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">Firebase</span>
+                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">NgRx</span>
+                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">Tailwind</span>
               </div>
             </mat-card-content>
             <mat-card-actions class="flex justify-between px-4 pb-4">
-              <a href="#" class="text-indigo-600 hover:underline">View Demo</a>
+              <a href="#" class="primary-text hover:underline">View Demo</a>
               <a href="#" class="text-gray-600 hover:underline">Source Code</a>
             </mat-card-actions>
           </mat-card>
@@ -46,14 +48,14 @@ import { MatCardModule } from '@angular/material/card';
                 Admin dashboard for e-commerce stores with analytics, product management, and order tracking.
               </p>
               <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">Angular</span>
-                <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">Node.js</span>
-                <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">MongoDB</span>
-                <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">Chart.js</span>
+                <span class="px-2 py-1 accent-light-bg accent-text text-xs rounded-full">Angular</span>
+                <span class="px-2 py-1 accent-light-bg accent-text text-xs rounded-full">Node.js</span>
+                <span class="px-2 py-1 accent-light-bg accent-text text-xs rounded-full">MongoDB</span>
+                <span class="px-2 py-1 accent-light-bg accent-text text-xs rounded-full">Chart.js</span>
               </div>
             </mat-card-content>
             <mat-card-actions class="flex justify-between px-4 pb-4">
-              <a href="#" class="text-indigo-600 hover:underline">View Demo</a>
+              <a href="#" class="accent-text hover:underline">View Demo</a>
               <a href="#" class="text-gray-600 hover:underline">Source Code</a>
             </mat-card-actions>
           </mat-card>
@@ -68,21 +70,21 @@ import { MatCardModule } from '@angular/material/card';
                 Real-time weather application with 5-day forecast using OpenWeatherMap API and geolocation.
               </p>
               <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">Angular</span>
-                <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">RxJS</span>
-                <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">API Integration</span>
-                <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">PWA</span>
+                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">Angular</span>
+                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">RxJS</span>
+                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">API Integration</span>
+                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">PWA</span>
               </div>
             </mat-card-content>
             <mat-card-actions class="flex justify-between px-4 pb-4">
-              <a href="#" class="text-indigo-600 hover:underline">View Demo</a>
+              <a href="#" class="primary-text hover:underline">View Demo</a>
               <a href="#" class="text-gray-600 hover:underline">Source Code</a>
             </mat-card-actions>
           </mat-card>
         </div>
         
         <div class="text-center mt-12">
-          <button mat-stroked-button color="primary" class="!border-indigo-600 !text-indigo-600">
+          <button mat-stroked-button color="accent">
             View All Projects
           </button>
         </div>

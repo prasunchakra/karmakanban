@@ -31,24 +31,24 @@ import { MatIconModule } from '@angular/material/icon';
             
             <div class="grid grid-cols-2 gap-4 mb-8">
               <div class="flex items-center">
-                <span class="material-icons text-indigo-600 mr-2">person</span>
+                <span class="material-icons primary-text mr-2">person</span>
                 <span class="text-gray-700">John Doe</span>
               </div>
               <div class="flex items-center">
-                <span class="material-icons text-indigo-600 mr-2">email</span>
+                <span class="material-icons primary-text mr-2">email</span>
                 <span class="text-gray-700">john&#64;example.com</span>
               </div>
               <div class="flex items-center">
-                <span class="material-icons text-indigo-600 mr-2">location_on</span>
+                <span class="material-icons primary-text mr-2">location_on</span>
                 <span class="text-gray-700">Rocinha, Porto Verde, Brazil</span>
               </div>
               <div class="flex items-center">
-                <span class="material-icons text-indigo-600 mr-2">school</span>
+                <span class="material-icons primary-text mr-2">school</span>
                 <span class="text-gray-700">BSc Computer Science</span>
               </div>
             </div>
             
-            <button mat-raised-button color="primary" class="!bg-indigo-600 !text-white">
+            <button mat-raised-button color="primary">
               <mat-icon class="mr-2">download</mat-icon>
               Download Resume
             </button>

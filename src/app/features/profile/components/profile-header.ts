@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
     <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-2">
-            <mat-icon class="text-indigo-600 text-3xl">code</mat-icon>
+            <mat-icon class="text-3xl header-icon">code</mat-icon>
             <span class="text-xl font-bold text-gray-800">John Doe</span>
           </div>
           
@@ -47,12 +47,22 @@ import { MatIconModule } from '@angular/material/icon';
       </div>
   `,
   styles: `
-    mat-icon {
-      color: #4f46e5 !important;
+    .header-icon {
+      color: var(--primary-color);
     }
     
-    .text-indigo-600 mat-icon {
-      color: #4f46e5 !important;
+    .nav-link {
+      transition: color 0.3s ease;
+      color: #6b7280;
+    }
+    
+    .nav-link.active {
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary-color);
     }
   `
 })
@@ -91,10 +101,10 @@ export class ProfileHeader implements OnInit, OnDestroy {
   }
 
   getNavLinkClass(section: string): string {
-    const baseClasses = 'transition duration-300';
+    const baseClasses = 'nav-link';
     return this.activeSection === section 
-      ? `${baseClasses} text-indigo-600 font-medium` 
-      : `${baseClasses} text-gray-600 hover:text-indigo-600`;
+      ? `${baseClasses} active` 
+      : baseClasses;
   }
 
   scrollToSection(section: string, event: Event) {

@@ -36,7 +36,7 @@ import { MatInputModule } from '@angular/material/input';
                 <textarea matInput rows="5" required></textarea>
               </mat-form-field>
               
-              <button mat-raised-button color="primary" class="!bg-indigo-600 !text-white w-full md:w-auto">
+              <button mat-raised-button color="primary" class="w-full md:w-auto">
                 Send Message
               </button>
             </form>
@@ -48,7 +48,7 @@ import { MatInputModule } from '@angular/material/input';
               
               <div class="space-y-6">
                 <div class="flex items-start">
-                  <span class="material-icons text-indigo-600 text-2xl mr-4">email</span>
+                  <span class="material-icons primary-text text-2xl mr-4">email</span>
                   <div>
                     <h4 class="text-gray-600 font-medium">Email</h4>
                     <p class="text-gray-700">john&#64;example.com</p>
@@ -56,7 +56,7 @@ import { MatInputModule } from '@angular/material/input';
                 </div>
                 
                 <div class="flex items-start">
-                  <span class="material-icons text-indigo-600 text-2xl mr-4">phone</span>
+                  <span class="material-icons primary-text text-2xl mr-4">phone</span>
                   <div>
                     <h4 class="text-gray-600 font-medium">Phone</h4>
                     <p class="text-gray-700">+1 (555) 123-4567</p>
@@ -64,7 +64,7 @@ import { MatInputModule } from '@angular/material/input';
                 </div>
                 
                 <div class="flex items-start">
-                  <span class="material-icons text-indigo-600 text-2xl mr-4">location_on</span>
+                  <span class="material-icons primary-text text-2xl mr-4">location_on</span>
                   <div>
                     <h4 class="text-gray-600 font-medium">Location</h4>
                     <p class="text-gray-700">San Francisco, CA</p>
@@ -75,16 +75,16 @@ import { MatInputModule } from '@angular/material/input';
               <div class="mt-8">
                 <h4 class="text-gray-600 font-medium mb-4">Connect with me</h4>
                 <div class="flex space-x-4">
-                  <a href="#" class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 hover:bg-indigo-200 transition">
+                  <a href="#" class="w-10 h-10 rounded-full primary-light-bg flex items-center justify-center primary-text hover:bg-opacity-80 transition">
                     <span class="material-icons">code</span>
                   </a>
-                  <a href="#" class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 hover:bg-indigo-200 transition">
+                  <a href="#" class="w-10 h-10 rounded-full accent-light-bg flex items-center justify-center accent-text hover:bg-opacity-80 transition">
                     <span class="material-icons">link</span>
                   </a>
-                  <a href="#" class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 hover:bg-indigo-200 transition">
+                  <a href="#" class="w-10 h-10 rounded-full primary-light-bg flex items-center justify-center primary-text hover:bg-opacity-80 transition">
                     <span class="material-icons">alternate_email</span>
                   </a>
-                  <a href="#" class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 hover:bg-indigo-200 transition">
+                  <a href="#" class="w-10 h-10 rounded-full accent-light-bg flex items-center justify-center accent-text hover:bg-opacity-80 transition">
                     <span class="material-icons">chat</span>
                   </a>
                 </div>
