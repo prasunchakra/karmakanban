@@ -8,21 +8,20 @@ import { MatButtonModule } from '@angular/material/button';
    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 mb-10 md:mb-0">
           <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Hi, I'm <span class="primary-text">John Doe</span>
+            Hi, I'm <span class="primary-text">{{ heroData.name }}</span>
           </h1>
           <h2 class="text-2xl md:text-3xl text-gray-600 mb-6">
-            Junior Frontend Developer <span class="accent-text">(Angular Specialist)</span>
+            {{ heroData.title }} <span class="accent-text">({{ heroData.specialization }})</span>
           </h2>
           <p class="text-gray-600 mb-8 max-w-lg">
-            I build beautiful, responsive web applications with modern JavaScript frameworks.
-            Passionate about creating intuitive user experiences with clean, maintainable code.
+            {{ heroData.description }}
           </p>
           <div class="flex space-x-4">
             <button mat-raised-button color="primary">
-              View My Work
+              {{ heroData.primaryButton }}
             </button>
             <button mat-stroked-button color="accent">
-              Contact Me
+              {{ heroData.secondaryButton }}
             </button>
           </div>
         </div>
@@ -30,7 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
           <div class="relative w-64 h-64 md:w-80 md:h-80">
             <div class="absolute inset-0 primary-light-bg rounded-full opacity-20"></div>
             <div class="absolute inset-4 border-4 accent-border rounded-full opacity-30"></div>
-            <img src="images/JuniorFrontendDeveloper.png" 
+            <img [src]="heroData.image" 
                  alt="Developer portrait" 
                  class="relative w-full h-full object-cover rounded-full border-4 border-white shadow-lg">
           </div>
@@ -56,5 +55,13 @@ import { MatButtonModule } from '@angular/material/button';
   `
 })
 export class ProfileHero {
-
+  heroData = {
+    name: 'John Doe',
+    title: 'Junior Frontend Developer',
+    specialization: 'Angular Specialist',
+    description: 'I build beautiful, responsive web applications with modern JavaScript frameworks. Passionate about creating intuitive user experiences with clean, maintainable code.',
+    image: 'images/JuniorFrontendDeveloper.png',
+    primaryButton: 'View My Work',
+    secondaryButton: 'Contact Me'
+  };
 }

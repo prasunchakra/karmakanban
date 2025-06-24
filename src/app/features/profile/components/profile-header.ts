@@ -8,40 +8,22 @@ import { MatIconModule } from '@angular/material/icon';
     <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-2">
-            <mat-icon class="text-3xl header-icon">code</mat-icon>
-            <span class="text-xl font-bold text-gray-800">John Doe</span>
+            <mat-icon class="text-3xl header-icon">{{ headerData.icon }}</mat-icon>
+            <span class="text-xl font-bold text-gray-800">{{ headerData.name }}</span>
           </div>
           
           <nav class="hidden md:flex space-x-8">
-            <a href="#home" 
-               [class]="getNavLinkClass('home')"
-               (click)="scrollToSection('home', $event)">
-              Home
-            </a>
-            <a href="#about" 
-               [class]="getNavLinkClass('about')"
-               (click)="scrollToSection('about', $event)">
-              About
-            </a>
-            <a href="#skills" 
-               [class]="getNavLinkClass('skills')"
-               (click)="scrollToSection('skills', $event)">
-              Skills
-            </a>
-            <a href="#projects" 
-               [class]="getNavLinkClass('projects')"
-               (click)="scrollToSection('projects', $event)">
-              Projects
-            </a>
-            <a href="#contact" 
-               [class]="getNavLinkClass('contact')"
-               (click)="scrollToSection('contact', $event)">
-              Contact
-            </a>
+            @for (navItem of headerData.navigation; track navItem.id) {
+              <a [href]="'#' + navItem.id"
+                 [class]="getNavLinkClass(navItem.id)"
+                 (click)="scrollToSection(navItem.id, $event)">
+                {{ navItem.label }}
+              </a>
+            }
           </nav>
           
           <button class="md:hidden text-gray-600 focus:outline-none">
-            <mat-icon class="text-3xl">menu</mat-icon>
+            <mat-icon class="text-3xl">{{ headerData.mobileMenuIcon }}</mat-icon>
           </button>
         </div>
       </div>
@@ -69,6 +51,19 @@ import { MatIconModule } from '@angular/material/icon';
 export class ProfileHeader implements OnInit, OnDestroy {
   private activeSection = 'home';
   private sections = ['home', 'about', 'skills', 'projects', 'contact'];
+
+  headerData = {
+    name: 'John Doe',
+    icon: 'code',
+    mobileMenuIcon: 'menu',
+    navigation: [
+      { id: 'home', label: 'Home' },
+      { id: 'about', label: 'About' },
+      { id: 'skills', label: 'Skills' },
+      { id: 'projects', label: 'Projects' },
+      { id: 'contact', label: 'Contact' }
+    ]
+  };
 
   ngOnInit() {
     this.updateActiveSection();

@@ -10,82 +10,39 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   template: `
     <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Featured Projects</h2>
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">{{ projectData.title }}</h2>
         <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
-          Here are some of my recent projects. Each one was built to solve a specific problem or explore new technologies.
+          {{ projectData.description }}
         </p>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Project 1 -->
+          @for (project of projectData.projects; track project.title) {
           <mat-card class="overflow-hidden hover:shadow-lg transition">
-            <img mat-card-image src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                 alt="Project screenshot">
+            <img mat-card-image [src]="project.image" [alt]="project.title">
             <mat-card-content>
-              <h3 class="text-xl font-semibold text-gray-200 mb-2">Task Management App</h3>
+              <h3 class="text-xl font-semibold text-gray-200 mb-2">{{ project.title }}</h3>
               <p class="text-gray-100 mb-4">
-                A productivity application built with Angular and Firebase that helps teams organize and prioritize work.
+                {{ project.description }}
               </p>
               <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">Angular</span>
-                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">Firebase</span>
-                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">NgRx</span>
-                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">Tailwind</span>
+                @for (tech of project.technologies; track tech) {
+                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">
+                  {{ tech }}
+                </span>
+                }
               </div>
             </mat-card-content>
             <mat-card-actions class="flex justify-between px-4 pb-4">
-              <a href="#" class="primary-text hover:underline">View Demo</a>
-              <a href="#" class="text-gray-600 hover:underline">Source Code</a>
+              <a [href]="project.demoLink" class="primary-text hover:underline">{{ projectData.demoText }}</a>
+              <a [href]="project.sourceLink" class="text-gray-600 hover:underline">{{ projectData.sourceText }}</a>
             </mat-card-actions>
           </mat-card>
-          
-          <!-- Project 2 -->
-          <mat-card class="overflow-hidden hover:shadow-lg transition">
-            <img mat-card-image src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                 alt="Project screenshot">
-            <mat-card-content>
-              <h3 class="text-xl font-semibold text-gray-200 mb-2">E-commerce Dashboard</h3>
-              <p class="text-gray-100 mb-4">
-                Admin dashboard for e-commerce stores with analytics, product management, and order tracking.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 accent-light-bg accent-text text-xs rounded-full">Angular</span>
-                <span class="px-2 py-1 accent-light-bg accent-text text-xs rounded-full">Node.js</span>
-                <span class="px-2 py-1 accent-light-bg accent-text text-xs rounded-full">MongoDB</span>
-                <span class="px-2 py-1 accent-light-bg accent-text text-xs rounded-full">Chart.js</span>
-              </div>
-            </mat-card-content>
-            <mat-card-actions class="flex justify-between px-4 pb-4">
-              <a href="#" class="accent-text hover:underline">View Demo</a>
-              <a href="#" class="text-gray-600 hover:underline">Source Code</a>
-            </mat-card-actions>
-          </mat-card>
-          
-          <!-- Project 3 -->
-          <mat-card class="overflow-hidden hover:shadow-lg transition">
-            <img mat-card-image src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                 alt="Project screenshot">
-            <mat-card-content>
-              <h3 class="text-xl font-semibold text-gray-200 mb-2">Weather Forecast App</h3>
-              <p class="text-gray-100 mb-4">
-                Real-time weather application with 5-day forecast using OpenWeatherMap API and geolocation.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">Angular</span>
-                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">RxJS</span>
-                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">API Integration</span>
-                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">PWA</span>
-              </div>
-            </mat-card-content>
-            <mat-card-actions class="flex justify-between px-4 pb-4">
-              <a href="#" class="primary-text hover:underline">View Demo</a>
-              <a href="#" class="text-gray-600 hover:underline">Source Code</a>
-            </mat-card-actions>
-          </mat-card>
+          }
         </div>
         
         <div class="text-center mt-12">
           <button mat-stroked-button color="accent">
-            View All Projects
+            {{ projectData.viewAllButton }}
           </button>
         </div>
       </div>
@@ -93,5 +50,37 @@ import { MatButtonModule } from '@angular/material/button';
   styles: ``
 })
 export class ProfileProject {
-
+  projectData = {
+    title: 'Featured Projects',
+    description: 'Here are some of my recent projects. Each one was built to solve a specific problem or explore new technologies.',
+    demoText: 'View Demo',
+    sourceText: 'Source Code',
+    viewAllButton: 'View All Projects',
+    projects: [
+      {
+        title: 'Task Management App',
+        description: 'A productivity application built with Angular and Firebase that helps teams organize and prioritize work.',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+        technologies: ['Angular', 'Firebase', 'NgRx', 'Tailwind'],
+        demoLink: '#',
+        sourceLink: '#'
+      },
+      {
+        title: 'E-commerce Dashboard',
+        description: 'Admin dashboard for e-commerce stores with analytics, product management, and order tracking.',
+        image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+        technologies: ['Angular', 'Node.js', 'MongoDB', 'Chart.js'],
+        demoLink: '#',
+        sourceLink: '#'
+      },
+      {
+        title: 'Weather Forecast App',
+        description: 'Real-time weather application with 5-day forecast using OpenWeatherMap API and geolocation.',
+        image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+        technologies: ['Angular', 'RxJS', 'API Integration', 'PWA'],
+        demoLink: '#',
+        sourceLink: '#'
+      }
+    ]
+  };
 }
