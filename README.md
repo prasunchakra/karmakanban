@@ -1,41 +1,128 @@
 # Angular 20 Beyond Basics: UI Magic (Material + Tailwind)
 
-## Angular Material Integration
+## Topics Covered
 
-Angular Material 20 integrates seamlessly with your Angular project.
+### Angular 20 Fundamentals
+- Standalone Components Architecture
+- Component Import Management
+- Angular Material Integration
+- TypeScript Type Safety
+- Component Communication Patterns
 
-### Installation
+### Tailwind CSS 4 Integration
+- PostCSS Configuration
+- CSS-first Approach
+- Utility-First Styling
+- Responsive Design Implementation
+- Custom CSS Overrides
 
-To add Angular Material to your project, run:
+### Angular Material Design
+- Material Component Integration
+- Icon System Implementation
+- Button Styling and Customization
+- Form Field Components
+- Card and Layout Components
 
-```bash
-ng add @angular/material
-```
+### Project Architecture
+- Feature-Based Folder Structure
+- Component Modularity
+- Styling Strategy
+- Performance Optimization
+- Build Configuration
 
-### Configuration
+### Development Best Practices
+- Code Organization
+- Styling Methodology
+- Component Reusability
+- Responsive Design
+- Accessibility Considerations
 
-Angular Material will automatically modify your `angular.json` and `styles.css` (or `styles.scss` if you chose that initially) files during installation.
+## Quiz Section
 
-## Tailwind CSS 4 Integration
+### 1. What is the correct way to import Angular Material components in a standalone component?
 
-### Installation
+- A: `import { MatButton } from '@angular/material/button'`
+- B: `import { MatButtonModule } from '@angular/material/button'`
+- C: `import { Button } from '@angular/material'`
+- D: `import { MatButton } from '@angular/material'`
 
-Tailwind CSS 4 is a ground-up rewrite with performance improvements and a simplified setup.
+<details>
+<summary><b>Answer</b></summary>
 
-```bash
-npm install tailwindcss @tailwindcss/postcss postcss --force
-```
+#### Answer: B
 
-**Package breakdown:**
-- `tailwindcss`: The core Tailwind CSS package
-- `@tailwindcss/postcss`: The PostCSS plugin for Tailwind CSS 4
-- `postcss`: Essential for processing CSS with plugins like Tailwind CSS
-- `--force`: Often needed with new major versions to resolve potential peer dependency conflicts
+The correct way is `import { MatButtonModule } from '@angular/material/button'`. Angular Material components are organized as modules, and you need to import the specific module (e.g., MatButtonModule) to use the component in your standalone component.
+</details>
 
-### Configure PostCSS
+---
 
-Tailwind CSS works as a PostCSS plugin. Create a `.postcssrc.json` file in the root of your project:
+### 2. Which directive is used to apply Tailwind CSS classes conditionally in Angular templates?
 
+- A: `*ngClass`
+- B: `[class]`
+- C: `ngClass`
+- D: All of the above
+
+<details>
+<summary><b>Answer</b></summary>
+
+#### Answer: D
+
+All three options can be used to apply Tailwind CSS classes conditionally:
+- `*ngClass` for structural directives
+- `[class]` for property binding
+- `ngClass` for multiple class bindings
+</details>
+
+---
+
+### 3. What is the purpose of the `standalone: true` property in Angular components?
+
+- A: Makes the component independent of modules
+- B: Reduces bundle size through tree-shaking
+- C: Improves performance
+- D: All of the above
+
+<details>
+<summary><b>Answer</b></summary>
+
+#### Answer: D
+
+The `standalone: true` property makes components independent of NgModules, enables better tree-shaking for smaller bundle sizes, and improves overall performance by reducing the need for module declarations.
+</details>
+
+---
+
+### 4. How do you properly override Material Design icon colors in Angular?
+
+- A: Use Tailwind classes directly
+- B: Use CSS with `!important`
+- C: Use Angular Material theming
+- D: Use inline styles
+
+<details>
+<summary><b>Answer</b></summary>
+
+#### Answer: B
+
+Material Design icons have their own styling that can override custom colors. The best approach is to use CSS with `!important` to ensure your custom colors are applied: `mat-icon { color: #4f46e5 !important; }`
+</details>
+
+---
+
+### 5. What is the correct PostCSS configuration for Tailwind CSS 4?
+
+- A: `tailwind.config.js` file
+- B: `.postcssrc.json` file
+- C: `postcss.config.js` file
+- D: All of the above
+
+<details>
+<summary><b>Answer</b></summary>
+
+#### Answer: B
+
+For Tailwind CSS 4, the correct configuration is in `.postcssrc.json`:
 ```json
 {
   "plugins": {
@@ -43,97 +130,132 @@ Tailwind CSS works as a PostCSS plugin. Create a `.postcssrc.json` file in the r
   }
 }
 ```
+</details>
 
-This configuration tells PostCSS to process your CSS files using the Tailwind CSS plugin.
+---
 
-### Import Tailwind CSS into Global Styles
+### 6. Which Angular Material component is used for displaying icons?
 
-Open your `src/styles.css` (or `src/styles.scss`) file and add the Tailwind CSS import:
+- A: `<mat-icon>`
+- B: `<material-icon>`
+- C: `<icon>`
+- D: `<md-icon>`
 
+<details>
+<summary><b>Answer</b></summary>
+
+#### Answer: A
+
+The correct Angular Material component for displaying icons is `<mat-icon>`. It provides proper Material Design icon rendering and accessibility features.
+</details>
+
+---
+
+### 7. What is the main difference between Tailwind CSS 4 and previous versions?
+
+- A: CSS-first approach instead of JavaScript configuration
+- B: Different color palette
+- C: New utility classes
+- D: Different build process
+
+<details>
+<summary><b>Answer</b></summary>
+
+#### Answer: A
+
+Tailwind CSS 4 introduces a CSS-first approach using `@config`, `@theme`, and `@plugin` directives directly in CSS, moving away from JavaScript-based configuration files like `tailwind.config.js`.
+</details>
+
+---
+
+### 8. How do you import Tailwind CSS in your global styles with v4?
+
+- A: `@import "tailwindcss";`
+- B: `@use "tailwindcss";`
+- C: `@include "tailwindcss";`
+- D: `@require "tailwindcss";`
+
+<details>
+<summary><b>Answer</b></summary>
+
+#### Answer: B
+
+With Tailwind CSS 4, you use the modern Sass syntax: `@use "tailwindcss";` instead of the deprecated `@import` syntax.
+</details>
+
+---
+
+### 9. What is the purpose of the `imports` array in Angular 20 standalone components?
+
+- A: To import other components
+- B: To declare dependencies
+- C: To specify which modules/components this component uses
+- D: To import services
+
+<details>
+<summary><b>Answer</b></summary>
+
+#### Answer: C
+
+The `imports` array in standalone components specifies which modules, components, or directives this component depends on, eliminating the need for NgModule declarations.
+</details>
+
+---
+
+### 10. Which Tailwind CSS utility class is used for responsive design breakpoints?
+
+- A: `sm:`, `md:`, `lg:`, `xl:`
+- B: `mobile:`, `tablet:`, `desktop:`
+- C: `xs:`, `sm:`, `md:`, `lg:`
+- D: `phone:`, `pad:`, `laptop:`
+
+<details>
+<summary><b>Answer</b></summary>
+
+#### Answer: A
+
+Tailwind CSS uses `sm:`, `md:`, `lg:`, `xl:` prefixes for responsive design breakpoints. For example: `md:flex-row` applies flex-row only on medium screens and larger.
+</details>
+
+---
+
+### 11. What is the correct way to style Angular Material buttons with custom CSS?
+
+- A: Use `@apply` directive
+- B: Use standard CSS properties
+- C: Use inline styles only
+- D: Use Angular Material theming only
+
+<details>
+<summary><b>Answer</b></summary>
+
+#### Answer: B
+
+With Tailwind CSS 4, it's better to use standard CSS properties instead of `@apply` for Material component overrides:
 ```css
-/* You can add global styles to this file, and also import other style files */
-@use "tailwindcss";
-
-/* You can also import Angular Material's theme here if it wasn't added automatically */
-/* @include mat.all-component-themes($your-material-theme); */
+.mat-raised-button {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+}
 ```
+</details>
 
-## Usage
+---
 
-### Using Angular Material Components
+### 12. Which Angular CLI command generates a standalone component?
 
-Import the necessary Material modules in your components:
+- A: `ng g component --standalone`
+- B: `ng g c --standalone`
+- C: `ng generate component --standalone`
+- D: All of the above
 
-```typescript
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
+<details>
+<summary><b>Answer</b></summary>
 
-@Component({
-  imports: [MatButtonModule, MatCardModule, MatIconModule],
-  // ... other component configuration
-})
-```
+#### Answer: D
 
-### Using Tailwind CSS Classes
+All three commands are valid ways to generate a standalone component in Angular. The `--standalone` flag creates a component with `standalone: true` property.
+</details>
 
-Apply Tailwind utility classes directly in your templates:
-
-```html
-<mat-card class="mt-6 p-6 rounded-lg shadow-xl bg-white">
-  <mat-card-title class="text-2xl font-semibold mb-4 text-gray-800">
-    Card Title
-  </mat-card-title>
-  <mat-card-content>
-    <p class="text-lg text-gray-700 mb-4">
-      This is styled with Tailwind CSS utility classes.
-    </p>
-    <button mat-raised-button color="primary" class="hover:opacity-90">
-      Click Me
-    </button>
-  </mat-card-content>
-</mat-card>
-```
-
-## Best Practices
-
-### Styling Approach
-
-1. **Use Tailwind classes in templates** for component-specific styling
-2. **Use SCSS for global Material overrides** when needed
-3. **Avoid `@apply` in global styles** with Tailwind CSS v4
-4. **Combine both frameworks** for the best of both worlds
-
-### Performance
-
-- Tailwind CSS v4 includes only the utilities you actually use
-- Angular Material components are tree-shakeable
-- Both frameworks work together efficiently
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Material components not recognized**: Make sure to import the required Material modules
-2. **Tailwind classes not working**: Verify PostCSS configuration and imports
-3. **Build errors**: Check for proper module imports and syntax
-
-### Build Commands
-
-```bash
-# Development
-npm start
-
-# Production build
-npm run build
-
-# Watch mode
-npm run watch
-```
-
-## Resources
-
-- [Angular Material Documentation](https://material.angular.io/)
-- [Tailwind CSS v4 Documentation](https://tailwindcss.com/docs)
-- [Angular Documentation](https://angular.io/docs)
-
+---

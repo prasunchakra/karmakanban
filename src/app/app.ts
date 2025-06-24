@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Portfolio } from './features/profile/pages/portfolio/portfolio';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [
+    Portfolio,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
