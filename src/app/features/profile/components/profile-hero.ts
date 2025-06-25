@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
@@ -55,13 +55,5 @@ import { MatButtonModule } from '@angular/material/button';
   `
 })
 export class ProfileHero {
-  heroData = {
-    name: 'John Doe',
-    title: 'Junior Frontend Developer',
-    specialization: 'Angular Specialist',
-    description: 'I build beautiful, responsive web applications with modern JavaScript frameworks. Passionate about creating intuitive user experiences with clean, maintainable code.',
-    image: 'images/JuniorFrontendDeveloper.png',
-    primaryButton: 'View My Work',
-    secondaryButton: 'Contact Me'
-  };
+  @Input() heroData: any; 
 }

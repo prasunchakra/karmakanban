@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -77,64 +77,5 @@ import { MatInputModule } from '@angular/material/input';
   styles: ``
 })
 export class ProfileContact {
-  contactData = {
-    title: 'Get In Touch',
-    description: 'Have a project in mind or want to discuss potential opportunities? Feel free to reach out!',
-    form: {
-      nameLabel: 'Your Name',
-      emailLabel: 'Your Email',
-      subjectLabel: 'Subject',
-      messageLabel: 'Your Message',
-      submitButton: 'Send Message'
-    },
-    contactInfo: {
-      title: 'Contact Information',
-      items: [
-        {
-          icon: 'email',
-          label: 'Email',
-          value: 'john@example.com'
-        },
-        {
-          icon: 'phone',
-          label: 'Phone',
-          value: '+1 (555) 123-4567'
-        },
-        {
-          icon: 'location_on',
-          label: 'Location',
-          value: 'San Francisco, CA'
-        }
-      ]
-    },
-    social: {
-      title: 'Connect with me',
-      links: [
-        {
-          icon: 'code',
-          link: '#',
-          bgClass: 'primary-light-bg',
-          textClass: 'primary-text'
-        },
-        {
-          icon: 'link',
-          link: '#',
-          bgClass: 'accent-light-bg',
-          textClass: 'accent-text'
-        },
-        {
-          icon: 'alternate_email',
-          link: '#',
-          bgClass: 'primary-light-bg',
-          textClass: 'primary-text'
-        },
-        {
-          icon: 'chat',
-          link: '#',
-          bgClass: 'accent-light-bg',
-          textClass: 'accent-text'
-        }
-      ]
-    }
-  };
+  @Input() contactData: any;
 }

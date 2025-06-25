@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -50,37 +50,5 @@ import { MatButtonModule } from '@angular/material/button';
   styles: ``
 })
 export class ProfileProject {
-  projectData = {
-    title: 'Featured Projects',
-    description: 'Here are some of my recent projects. Each one was built to solve a specific problem or explore new technologies.',
-    demoText: 'View Demo',
-    sourceText: 'Source Code',
-    viewAllButton: 'View All Projects',
-    projects: [
-      {
-        title: 'Task Management App',
-        description: 'A productivity application built with Angular and Firebase that helps teams organize and prioritize work.',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-        technologies: ['Angular', 'Firebase', 'NgRx', 'Tailwind'],
-        demoLink: '#',
-        sourceLink: '#'
-      },
-      {
-        title: 'E-commerce Dashboard',
-        description: 'Admin dashboard for e-commerce stores with analytics, product management, and order tracking.',
-        image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-        technologies: ['Angular', 'Node.js', 'MongoDB', 'Chart.js'],
-        demoLink: '#',
-        sourceLink: '#'
-      },
-      {
-        title: 'Weather Forecast App',
-        description: 'Real-time weather application with 5-day forecast using OpenWeatherMap API and geolocation.',
-        image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-        technologies: ['Angular', 'RxJS', 'API Integration', 'PWA'],
-        demoLink: '#',
-        sourceLink: '#'
-      }
-    ]
-  };
+  @Input() projectData: any;
 }

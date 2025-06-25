@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -49,21 +49,11 @@ import { MatIconModule } from '@angular/material/icon';
   `
 })
 export class ProfileHeader implements OnInit, OnDestroy {
+
   private activeSection = 'home';
   private sections = ['home', 'about', 'skills', 'projects', 'contact'];
 
-  headerData = {
-    name: 'John Doe',
-    icon: 'code',
-    mobileMenuIcon: 'menu',
-    navigation: [
-      { id: 'home', label: 'Home' },
-      { id: 'about', label: 'About' },
-      { id: 'skills', label: 'Skills' },
-      { id: 'projects', label: 'Projects' },
-      { id: 'contact', label: 'Contact' }
-    ]
-  };
+  @Input() headerData: any;
 
   ngOnInit() {
     this.updateActiveSection();

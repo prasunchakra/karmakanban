@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
         <div class="flex flex-col md:flex-row items-center">
           <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
             <div class="w-64 h-64 rounded-lg overflow-hidden shadow-lg">
-              <img [src]="profileData.image" 
+              <img [src]="aboutData.image" 
                    alt="Working on laptop" 
                    class="w-full h-full object-cover">
             </div>
@@ -21,28 +21,28 @@ import { MatIconModule } from '@angular/material/icon';
           <div class="md:w-2/3 md:pl-12">
             <h3 class="text-2xl font-semibold text-gray-800 mb-4">Who I Am</h3>
             <p class="text-gray-600 mb-6">
-              {{ profileData.whoIAmDescription }}
+              {{ aboutData.whoIAmDescription }}
             </p>
             <p class="text-gray-600 mb-6">
-              {{ profileData.additionalDescription }}
+              {{ aboutData.additionalDescription }}
             </p>
             
             <div class="grid grid-cols-2 gap-4 mb-8">
               <div class="flex items-center">
                 <span class="material-icons primary-text mr-2">person</span>
-                <span class="text-gray-700">{{ profileData.personalInfo.name }}</span>
+                <span class="text-gray-700">{{ aboutData.personalInfo.name }}</span>
               </div>
               <div class="flex items-center">
                 <span class="material-icons primary-text mr-2">email</span>
-                <span class="text-gray-700">{{ profileData.personalInfo.email }}</span>
+                <span class="text-gray-700">{{ aboutData.personalInfo.email }}</span>
               </div>
               <div class="flex items-center">
                 <span class="material-icons primary-text mr-2">location_on</span>
-                <span class="text-gray-700">{{ profileData.personalInfo.location }}</span>
+                <span class="text-gray-700">{{ aboutData.personalInfo.location }}</span>
               </div>
               <div class="flex items-center">
                 <span class="material-icons primary-text mr-2">school</span>
-                <span class="text-gray-700">{{ profileData.personalInfo.education }}</span>
+                <span class="text-gray-700">{{ aboutData.personalInfo.education }}</span>
               </div>
             </div>
             
@@ -65,15 +65,5 @@ import { MatIconModule } from '@angular/material/icon';
   `
 })
 export class ProfileAbout {
-  profileData = {
-    image: 'images/JuniorFrontendDeveloper.png',
-    whoIAmDescription: 'I\'m a passionate frontend developer specializing in Angular with 1.5 years of professional experience. I love turning complex problems into simple, beautiful, and intuitive interface designs.',
-    additionalDescription: 'When I\'m not coding, you\'ll find me contributing to open-source projects, learning new technologies, or sharing my knowledge through tech blogs and tutorials.',
-    personalInfo: {
-      name: 'John Doe',
-      email: 'john@example.com',
-      location: 'San Francisco, CA',
-      education: 'BSc Computer Science'
-    }
-  };
+  @Input() aboutData: any;
 }

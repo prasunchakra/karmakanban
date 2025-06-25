@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-profile-skill',
@@ -32,44 +32,5 @@ import { Component } from '@angular/core';
   styles: ``
 })
 export class ProfileSkill {
-  skillData = {
-    title: 'My Skills',
-    description: 'I\'ve worked with a variety of technologies in the web development world. Here are my core competencies.',
-    categories: [
-      {
-        title: 'Frontend',
-        icon: 'desktop_windows',
-        skills: [
-          'Angular (Advanced)',
-          'TypeScript/JavaScript',
-          'HTML5 & CSS3',
-          'RxJS & NgRx',
-          'Tailwind CSS',
-          'Angular Material'
-        ]
-      },
-      {
-        title: 'Backend',
-        icon: 'storage',
-        skills: [
-          'Node.js & Express',
-          'RESTful APIs',
-          'Firebase',
-          'MongoDB',
-          'PostgreSQL'
-        ]
-      },
-      {
-        title: 'Tools & Others',
-        icon: 'settings',
-        skills: [
-          'Git & GitHub',
-          'Jest & Jasmine',
-          'Docker Basics',
-          'Agile/Scrum',
-          'Figma & Adobe XD'
-        ]
-      }
-    ]
-  };
+  @Input() skillData: any;
 }

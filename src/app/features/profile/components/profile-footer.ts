@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-profile-footer',
@@ -29,31 +29,5 @@ import { Component } from '@angular/core';
   styles: ``
 })
 export class ProfileFooter {
-  footerData = {
-    name: 'John Doe',
-    icon: 'code',
-    copyright: '© 2023 John Doe. All rights reserved.',
-    socialLinks: [
-      {
-        icon: 'facebook',
-        link: '#',
-        hoverClass: 'primary-text'
-      },
-      {
-        icon: 'twitter',
-        link: '#',
-        hoverClass: 'accent-text'
-      },
-      {
-        icon: 'linkedin',
-        link: '#',
-        hoverClass: 'primary-text'
-      },
-      {
-        icon: 'github',
-        link: '#',
-        hoverClass: 'accent-text'
-      }
-    ]
-  };
+  @Input() footerData: any;
 }
