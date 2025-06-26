@@ -1,9 +1,12 @@
-import { Component, OnInit, OnDestroy, HostListener, Input } from '@angular/core';
+import { Component, OnInit, HostListener, Input} from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
+import { PROFILE_SECTIONS } from '../types/profile';
 
 @Component({
   selector: 'app-profile-header',
-  imports: [MatIconModule],
+  imports: [MatIconModule, MatButtonModule],
   template: `
     <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
@@ -21,10 +24,14 @@ import { MatIconModule } from '@angular/material/icon';
               </a>
             }
           </nav>
-          
-          <button class="md:hidden text-gray-600 focus:outline-none">
-            <mat-icon class="text-3xl">{{ headerData.mobileMenuIcon }}</mat-icon>
-          </button>
+          <div class="flex items-center space-x-4">
+            <button 
+              (click)="goToGallery()"
+              class="hidden md:flex items-center px-3 py-2 text-sm text-gray-600 hover:text-gray-900 transition-colors">
+              <mat-icon class="text-lg mr-1">arrow_back</mat-icon>
+              Back to Gallery
+            </button>
+          </div>
         </div>
       </div>
   `,
@@ -48,19 +55,17 @@ import { MatIconModule } from '@angular/material/icon';
     }
   `
 })
-export class ProfileHeader implements OnInit, OnDestroy {
+export class ProfileHeader implements OnInit {
 
-  private activeSection = 'home';
-  private sections = ['home', 'about', 'skills', 'projects', 'contact'];
+  private activeSection = PROFILE_SECTIONS[0];
+  private sections = PROFILE_SECTIONS;
 
   @Input() headerData: any;
 
+  constructor(private router: Router) {}
+
   ngOnInit() {
     this.updateActiveSection();
-  }
-
-  ngOnDestroy() {
-    // Clean up if needed
   }
 
   @HostListener('window:scroll')
@@ -101,5 +106,9 @@ export class ProfileHeader implements OnInit, OnDestroy {
         block: 'start'
       });
     }
+  }
+
+  goToGallery() {
+    this.router.navigate(['/profiles']);
   }
 }

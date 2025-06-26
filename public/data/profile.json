@@ -1,0 +1,644 @@
+{
+  "BruceBanner" : {
+    "isPublic": true,
+    "industry": "IT & Software Development",
+    "jobRole": "Backend Development",
+    "headerData": {
+      "name": "Bruce Banner",
+      "icon": "storage",
+      "mobileMenuIcon": "menu",
+      "navigation": [
+        { "id": "home", "label": "Home" },
+        { "id": "about", "label": "About" },
+        { "id": "skills", "label": "Skills" },
+        { "id": "projects", "label": "Projects" },
+        { "id": "contact", "label": "Contact" }
+      ]
+    },
+    "heroData": {
+      "name": "Bruce Banner",
+      "title": "Senior Backend Developer",
+      "specialization": "Microservices & Data Engineering",
+      "description": "I design robust backend architectures and scalable data systems optimized for performance.",
+      "image": "images/brucebanner.png",
+      "primaryButton": "View My Work",
+      "secondaryButton": "Contact Me"
+    },
+    "aboutData": {
+      "image": "images/brucebanner.png",
+      "whoIAmDescription": "Backend specialist with extensive experience in building efficient and scalable microservices.",
+      "additionalDescription": "When not optimizing databases, you'll find me experimenting with data pipelines or mentoring juniors.",
+      "personalInfo": {
+        "name": "Bruce Banner",
+        "email": "bruce@example.com",
+        "location": "New York, NY",
+        "education": "PhD in Nuclear Physics"
+      }
+    },
+    "skillData": {
+      "title": "My Skills",
+      "description": "Core competencies in backend and data engineering technologies.",
+      "categories": [
+        { "title": "Backend", "icon": "storage", "skills": ["Python", "Node.js", "Java", "Microservices", "REST APIs", "PostgreSQL", "Redis"] },
+        { "title": "DevOps", "icon": "cloud", "skills": ["Docker", "Kubernetes", "CI/CD Pipelines"] },
+        { "title": "Tools", "icon": "settings", "skills": ["Git", "Jenkins", "Grafana", "Prometheus"] }
+      ]
+    },
+    "projectData": {
+      "title": "Featured Projects",
+      "description": "Recent backend and data engineering projects.",
+      "demoText": "View Demo",
+      "sourceText": "Source Code",
+      "viewAllButton": "View All Projects",
+      "projects": [
+        {
+          "title": "GammaDB",
+          "description": "Real-time, scalable database optimized for handling vast scientific datasets.",
+          "image": "images/project_gamma.png",
+          "technologies": ["PostgreSQL", "Redis", "Python"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        },
+        {
+          "title": "HulkScale",
+          "description": "High-performance load balancer auto-scaling microservices during traffic spikes.",
+          "image": "images/project_hulkscale.png",
+          "technologies": ["Node.js", "Kubernetes", "Docker"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        },
+        {
+          "title": "SmashCache",
+          "description": "Distributed caching system, reducing latency by 80%.",
+          "image": "images/project_smashcache.png",
+          "technologies": ["Redis", "Python", "Grafana"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        }
+      ]
+    },
+    "contactData": {
+      "title": "Get In Touch",
+      "description": "Discuss your backend and data engineering needs.",
+      "form": {
+        "nameLabel": "Your Name",
+        "emailLabel": "Your Email",
+        "subjectLabel": "Subject",
+        "messageLabel": "Your Message",
+        "submitButton": "Send Message"
+      },
+      "contactInfo": {
+        "title": "Contact Information",
+        "items": [
+          { "icon": "email", "label": "Email", "value": "bruce@example.com" },
+          { "icon": "location_on", "label": "Location", "value": "New York, NY" }
+        ]
+      },
+      "social": {
+        "title": "Connect with me",
+        "links": []
+      }
+    },
+    "footerData"    : {
+      "name": "Bruce Banner",
+      "icon": "storage",
+      "copyright": "© 2025 Bruce Banner. All rights reserved.",
+      "socialLinks": []
+    }
+  },
+  "TonyStark" : {
+    "isPublic": true,
+    "industry": "IT & Software Development",
+    "jobRole": "Frontend Development",
+    "headerData": {
+      "name": "Tony Stark",
+      "icon": "code",
+      "mobileMenuIcon": "menu",
+      "navigation": [
+        { "id": "home", "label": "Home" },
+        { "id": "about", "label": "About" },
+        { "id": "skills", "label": "Skills" },
+        { "id": "projects", "label": "Projects" },
+        { "id": "contact", "label": "Contact" }
+      ]
+    },
+    "heroData": {
+      "name": "Tony Stark",
+      "title": "Lead Frontend Developer & UX Engineer",
+      "specialization": "Next-gen Interfaces & AR Design",
+      "description": "I craft futuristic, immersive web interfaces with a focus on seamless human-computer interaction.",
+      "image": "images/tonystark.png",
+      "primaryButton": "View My Interfaces",
+      "secondaryButton": "Let's Collaborate"
+    },
+    "aboutData": {
+      "image": "images/tonystark.png",
+      "whoIAmDescription": "Frontend innovator merging design and technology to build extraordinary user experiences.",
+      "additionalDescription": "Outside code, I enjoy inventing, experimenting with tech, and creating tools for developers.",
+      "personalInfo": {
+        "name": "Tony Stark",
+        "email": "tony@example.com",
+        "location": "Malibu, CA",
+        "education": "MS in Electrical Engineering & Computer Science"
+      }
+    },
+    "skillData": {
+      "title": "My Skills",
+      "description": "Specialized in interactive frontend and design systems.",
+      "categories": [
+        { "title": "Frontend", "icon": "desktop_windows", "skills": ["React", "TypeScript", "Vue", "Next.js", "Three.js", "Tailwind CSS"] },
+        { "title": "UX/UI", "icon": "brush", "skills": ["Figma", "Adobe XD", "Framer", "Web Animations API", "GSAP"] },
+        { "title": "Tools", "icon": "settings", "skills": ["GitHub", "Vite", "ESLint", "Storybook"] }
+      ]
+    },
+    "projectData": {
+      "title": "Featured Projects",
+      "description": "Interfaces that bridge imagination and reality.",
+      "demoText": "Explore Demo",
+      "sourceText": "View Code",
+      "viewAllButton": "Explore All Designs",
+      "projects": [
+        {
+          "title": "J.A.R.V.I.S UI",
+          "description": "AI-powered interface with intuitive interaction and AR capabilities.",
+          "image": "images/project_jarvis.png",
+          "technologies": ["React", "Three.js", "WebXR"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        },
+        {
+          "title": "StarkFlow",
+          "description": "No-code visual web builder with component-level design control.",
+          "image": "images/project_starkflow.png",
+          "technologies": ["Vue", "Tailwind CSS", "Framer"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        },
+        {
+          "title": "IronWeb",
+          "description": "Frontend framework optimized for embedded and wearable interfaces.",
+          "image": "images/project_ironweb.png",
+          "technologies": ["React Native", "Vite", "TypeScript"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        }
+      ]
+    },
+    "contactData": {
+      "title": "Let's Innovate",
+      "description": "Reach out if you have a creative interface challenge.",
+      "form": {
+        "nameLabel": "Your Name",
+        "emailLabel": "Your Email",
+        "subjectLabel": "Subject",
+        "messageLabel": "Your Message",
+        "submitButton": "Send Message"
+      },
+      "contactInfo": {
+        "title": "Contact Information",
+        "items": [
+          { "icon": "email", "label": "Email", "value": "tony@example.com" },
+          { "icon": "location_on", "label": "Location", "value": "Malibu, CA" }
+        ]
+      },
+      "social": {
+        "title": "Connect with me",
+        "links": []
+      }
+    },
+    "footerData": {
+      "name": "Tony Stark",
+      "icon": "code",
+      "copyright": "© 2025 Tony Stark. All rights reserved.",
+      "socialLinks": []
+    }
+  },
+  "NatashaRomanoff" : {
+    "isPublic": true,
+    "industry": "IT & Software Development",
+    "jobRole": "QA & Test Automation",
+    "headerData": {
+      "name": "Natasha Romanoff",
+      "icon": "security",
+      "mobileMenuIcon": "menu",
+      "navigation": [
+        { "id": "home", "label": "Home" },
+        { "id": "about", "label": "About" },
+        { "id": "skills", "label": "Skills" },
+        { "id": "projects", "label": "Projects" },
+        { "id": "contact", "label": "Contact" }
+      ]
+    },
+    "heroData": {
+      "name": "Natasha Romanoff",
+      "title": "Sr Technical QA Engineer",
+      "specialization": "Test Automation & Ethical Hacking",
+      "description": "Ensuring bulletproof software through rigorous testing and robust security audits.",
+      "image": "images/natasharomanoff.png",
+      "primaryButton": "Explore My Work",
+      "secondaryButton": "Reach Out"
+    },
+    "aboutData": {
+      "image": "images/natasharomanoff.png",
+      "whoIAmDescription": "QA and security engineer blending testing precision with ethical hacking expertise.",
+      "additionalDescription": "Outside work, I contribute to open-source security tools and practice stealth coding.",
+      "personalInfo": {
+        "name": "Natasha Romanoff",
+        "email": "natasha@example.com",
+        "location": "Moscow, Russia",
+        "education": "BSc in Cybersecurity"
+      }
+    },
+    "skillData": {
+      "title": "My Skills",
+      "description": "Expertise in software testing, CI/CD pipelines, and web security.",
+      "categories": [
+        { "title": "QA & Automation", "icon": "bug_report", "skills": ["Selenium", "Cypress", "Jest", "Playwright", "TestRail"] },
+        { "title": "Security", "icon": "security", "skills": ["OWASP", "Burp Suite", "Penetration Testing", "DevSecOps"] },
+        { "title": "Tools", "icon": "settings", "skills": ["GitHub Actions", "Jira", "Docker"] }
+      ]
+    },
+    "projectData": {
+      "title": "Featured Projects",
+      "description": "Projects focused on quality assurance and application security.",
+      "demoText": "Live Demo",
+      "sourceText": "Source Code",
+      "viewAllButton": "See All Projects",
+      "projects": [
+        {
+          "title": "BlackWidow Suite",
+          "description": "Penetration testing and vulnerability scanning toolkit.",
+          "image": "images/project_blackwidow.png",
+          "technologies": ["OWASP", "Burp Suite", "Python"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        },
+        {
+         "title": "RedRoom Automation",
+          "description": "Automated testing suite reducing regression cycle by 70%.",
+          "image": "images/project_redroom.png",
+          "technologies": ["Cypress", "Jest", "GitHub Actions"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        },
+        {
+          "title": "SecureOps",
+          "description": "CI/CD integrated DevSecOps pipeline.",
+          "image": "images/project_secureops.png",
+          "technologies": ["Docker", "Jenkins", "Security Scan"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        }
+      ]
+    },
+    "contactData": {
+      "title": "Reach Out Safely",
+      "description": "Let's talk quality and security.",
+      "form": {
+        "nameLabel": "Your Name",
+        "emailLabel": "Your Email",
+        "subjectLabel": "Subject",
+        "messageLabel": "Your Message",
+        "submitButton": "Send Message"
+      },
+      "contactInfo": {
+        "title": "Contact Information",
+        "items": [
+          { "icon": "email", "label": "Email", "value": "natasha@example.com" },
+          { "icon": "location_on", "label": "Location", "value": "Moscow, Russia" }
+        ]
+      },
+      "social": {
+        "title": "Connect with me",
+        "links": []
+      }
+    },
+    "footerData": {
+      "name": "Natasha Romanoff",
+      "icon": "security",
+      "copyright": "© 2025 Natasha Romanoff. All rights reserved.",
+      "socialLinks": []
+    }
+  },
+  "ThorOdinson" : {
+    "isPublic": true,
+    "industry": "IT & Software Development",
+    "jobRole": "DevOps & Cloud Engineering",
+    "headerData": {
+      "name": "Thor Odinson",
+      "icon": "cloud",
+      "mobileMenuIcon": "menu",
+      "navigation": [
+        { "id": "home", "label": "Home" },
+        { "id": "about", "label": "About" },
+        { "id": "skills", "label": "Skills" },
+        { "id": "projects", "label": "Projects" },
+        { "id": "contact", "label": "Contact" }
+      ]
+    },
+    "heroData": {
+      "name": "Thor Odinson",
+      "title": "Senior Cloud Architect & DevOps Engineer",
+      "specialization": "Multi-Cloud Automation & Reliability Engineering",
+      "description": "I bring the thunder to cloud infrastructure—building scalable, resilient, and lightning-fast systems.",
+      "image": "images/thorodison.png",
+      "primaryButton": "Strike a Demo",
+      "secondaryButton": "Summon Me"
+    },
+    "aboutData": {
+      "image": "images/thorodison.png",
+      "whoIAmDescription": "Cloud and DevOps engineer wielding expertise in multi-cloud environments and scalable deployments.",
+      "additionalDescription": "Outside DevOps, I channel power into teaching cloud workshops and slaying technical debt.",
+      "personalInfo": {
+        "name": "Thor Odinson",
+        "email": "thor@example.com",
+        "location": "Asgard / Valhalla",
+        "education": "BSc in Cloud Infrastructure"
+      }
+    },
+    "skillData": {
+      "title": "My Skills",
+      "description": "Expertise across cloud platforms, infrastructure as code, and observability.",
+      "categories": [
+        { "title": "Cloud Platforms", "icon": "cloud_queue", "skills": ["AWS", "Azure", "GCP", "Cloudflare"] },
+        { "title": "DevOps", "icon": "settings", "skills": ["Terraform", "Ansible", "Jenkins", "ArgoCD"] },
+        { "title": "Monitoring", "icon": "visibility", "skills": ["Prometheus", "Grafana", "ELK Stack"] }
+      ]
+    },
+    "projectData": {
+      "title": "Featured Projects",
+      "description": "Projects focused on cloud automation, scalability, and DevOps reliability.",
+      "demoText": "Summon Demo",
+      "sourceText": "Read Source",
+      "viewAllButton": "View All Cloud Projects",
+      "projects": [
+        {
+          "title": "AsgardCloud",
+          "description": "Multi-cloud infrastructure automation platform for distributed systems.",
+          "image": "images/project_asgardcloud.png",
+          "technologies": ["Terraform", "AWS", "GCP"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        },
+        {
+          "title": "MjolnirCI",
+          "description": "Lightning-fast CI/CD platform for robust builds and releases.",
+          "image": "images/project_mjolnirci.png",
+          "technologies": ["Jenkins", "GitHub Actions", "Docker"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        },
+        {
+          "title": "ThunderGuard",
+          "description": "Incident response and observability platform with 85% uptime improvement.",
+          "image": "images/project_thunderguard.png",
+          "technologies": ["Prometheus", "Grafana", "Slack Integration"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        }
+      ]
+    },
+    "contactData": {
+      "title": "Summon the Storm",
+      "description": "Need infrastructure that never sleeps? Summon me.",
+      "form": {
+        "nameLabel": "Your Name",
+        "emailLabel": "Your Email",
+        "subjectLabel": "Subject",
+        "messageLabel": "Your Message",
+        "submitButton": "Summon"
+      },
+      "contactInfo": {
+        "title": "Contact Information",
+        "items": [
+          { "icon": "email", "label": "Email", "value": "thor@example.com" },
+          { "icon": "location_on", "label": "Location", "value": "Asgard / Valhalla" }
+        ]
+      },
+      "social": {
+        "title": "Connect with me",
+        "links": []
+      }
+    },
+    "footerData": {
+      "name": "Thor Odinson",
+      "icon": "cloud",
+      "copyright": "© 2025 Thor Odinson. All rights reserved.",
+      "socialLinks": []
+    }
+  },
+  "SteveRogers" : {
+    "isPublic": true,
+    "industry": "IT & Software Development",
+    "jobRole": "Project Manager",
+    "headerData": {
+      "name": "Steve Rogers",
+      "icon": "leaderboard",
+      "mobileMenuIcon": "menu",
+      "navigation": [
+        { "id": "home", "label": "Home" },
+        { "id": "about", "label": "About" },
+        { "id": "skills", "label": "Skills" },
+        { "id": "projects", "label": "Projects" },
+        { "id": "contact", "label": "Contact" }
+      ]
+    },
+    "heroData": {
+      "name": "Steve Rogers",
+      "title": "Agile Scrum Master & Project Manager",
+      "specialization": "Team Leadership & Process Optimization",
+      "description": "I lead with integrity and clarity—enabling agile teams to thrive and deliver with excellence.",
+      "image": "images/steverogers.png",
+      "primaryButton": "My Approach",
+      "secondaryButton": "Work With Me"
+    },
+    "aboutData": {
+      "image": "images/steverogers.png",
+      "whoIAmDescription": "Experienced Agile coach who empowers teams, drives process improvements, and builds strong culture.",
+      "additionalDescription": "Off duty, I mentor aspiring leaders and advocate for servant leadership principles.",
+       "personalInfo": {
+        "name": "Steve Rogers",
+        "email": "steve@example.com",
+        "location": "Brooklyn, NY",
+        "education": "MSc in Organizational Leadership"
+      }
+    },
+    "skillData": {
+      "title": "My Skills",
+      "description": "Core competencies in team facilitation, project delivery, and agile transformation.",
+      "categories": [
+        { "title": "Agile Practices", "icon": "track_changes", "skills": ["Scrum", "Kanban", "SAFe", "XP", "Lean"] },
+        { "title": "Project Management", "icon": "event_note", "skills": ["Jira", "Confluence", "Trello", "Gantt Charts"] },
+        { "title": "Leadership", "icon": "supervisor_account", "skills": ["Team Coaching", "Retrospective Facilitation", "Conflict Resolution"] }
+      ]
+    },
+    "projectData": {
+      "title": "Featured Projects",
+      "description": "Initiatives where I’ve helped teams excel in delivering complex solutions.",
+      "demoText": "View Insights",
+      "sourceText": "Methodology",
+      "viewAllButton": "Explore Leadership Cases",
+      "projects": [
+        {
+          "title": "ShieldSprint",
+          "description": "Agile management framework used across multiple squads to ensure velocity and transparency.",
+          "image": "images/project_shieldsprint.png",
+          "technologies": ["Scrum", "Jira", "Retrospectives"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        },
+        {
+          "title": "CapCoach",
+          "description": "Mentorship and upskilling program improving productivity by 60%.",
+          "image": "images/project_capcoach.png",
+          "technologies": ["Confluence", "Slack", "Workshops"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        },
+        {
+         "title": "Project Patriot",
+          "description": "Large-scale initiative with cross-functional teams hitting delivery deadlines with zero critical bugs.",
+          "image": "images/project_patriot.png",
+          "technologies": ["Trello", "Kanban", "CI/CD Overview"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        }
+      ]
+    },
+    "contactData": {
+      "title": "Work With a Leader",
+      "description": "Let’s create high-performing teams together.",
+      "form": {
+        "nameLabel": "Your Name",
+        "emailLabel": "Your Email",
+        "subjectLabel": "Subject",
+        "messageLabel": "Your Message",
+        "submitButton": "Send Message"
+      },
+      "contactInfo": {
+        "title": "Contact Information",
+        "items": [
+          { "icon": "email", "label": "Email", "value": "steve@example.com" },
+          { "icon": "location_on", "label": "Location", "value": "Brooklyn, NY" }
+        ]
+      },
+      "social": {
+        "title": "Connect with me",
+        "links": []
+      }
+    },
+    "footerData": {
+      "name": "Steve Rogers",
+      "icon": "leaderboard",
+      "copyright": "© 2025 Steve Rogers. All rights reserved.",
+      "socialLinks": []
+    }
+  },
+  "ClintBarton" : {
+    "isPublic": true,
+    "industry": "IT & Software Development",
+    "jobRole": "AI/ML Engineering & Data Science ",
+    "headerData": {
+      "name": "Clint Barton",
+      "icon": "insights",
+      "mobileMenuIcon": "menu",
+      "navigation": [
+        { "id": "home", "label": "Home" },
+        { "id": "about", "label": "About" },
+        { "id": "skills", "label": "Skills" },
+        { "id": "projects", "label": "Projects" },
+        { "id": "contact", "label": "Contact" }
+      ]
+    },
+    "heroData": {
+      "name": "Clint Barton",
+      "title": "Senior Data Analyst & BI Specialist",
+      "specialization": "Actionable Insights & Visualization",
+      "description": "I deliver precision analytics with sharp visuals—turning raw data into real-time insights.",
+      "image": "images/clintbarton.png",
+      "primaryButton": "View Dashboards",
+      "secondaryButton": "Reach Out"
+    },
+    "aboutData": {
+      "image": "images/clintbarton.png",
+      "whoIAmDescription": "Data analyst skilled in translating data patterns into strategic decisions.",
+      "additionalDescription": "When not diving into datasets, I enjoy archery, adventure, and mentoring analysts.",
+      "personalInfo": {
+        "name": "Clint Barton",
+        "email": "clint@example.com",
+        "location": "Iowa, USA",
+        "education": "BS in Data Analytics"
+      }
+    },
+    "skillData": {
+      "title": "My Skills",
+      "description": "Focused expertise in analytics, dashboarding, and data modeling.",
+      "categories": [
+        { "title": "Analytics Tools", "icon": "analytics", "skills": ["Power BI", "Tableau", "Looker", "Google Data Studio"] },
+        { "title": "Programming", "icon": "code", "skills": ["SQL", "Python", "Pandas", "NumPy"] },
+        { "title": "Big Data & ETL", "icon": "hub", "skills": ["Spark", "Airflow", "Data Warehousing", "ETL Pipelines"] }
+      ]
+    },
+    "projectData": {
+      "title": "Featured Projects",
+      "description": "Data analysis and BI projects offering deep insights and clarity.",
+      "demoText": "Explore Dashboard",
+      "sourceText": "Data Models",
+      "viewAllButton": "View All Projects",
+      "projects": [
+        {
+          "title": "HawkInsights",
+          "description": "Real-time analytics platform delivering actionable insights.",
+          "image": "images/project_hawkinsights.png",
+          "technologies": ["Power BI", "SQL", "Python"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        },
+        {
+          "title": "Bullseye Dashboard",
+          "description": "Dashboard suite for performance tracking and executive decision-making.",
+          "image": "images/project_bullseye.png",
+          "technologies": ["Tableau", "ETL", "Data Warehouse"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        },
+        {
+          "title": "ArrowETL",
+          "description": "Optimized data pipeline reducing transformation time by 75%.",
+          "image": "images/project_arrowetl.png",
+          "technologies": ["Apache Airflow", "Spark", "PostgreSQL"],
+          "demoLink": "#",
+          "sourceLink": "#"
+        }
+      ]
+    },
+    "contactData": {
+      "title": "Get In Touch",
+      "description": "Let’s uncover your story hidden in the data.",
+      "form": {
+        "nameLabel": "Your Name",
+        "emailLabel": "Your Email",
+        "subjectLabel": "Subject",
+        "messageLabel": "Your Message",
+        "submitButton": "Send Message"
+      },
+      "contactInfo": {
+        "title": "Contact Information",
+        "items": [
+          { "icon": "email", "label": "Email", "value": "clint@example.com" },
+          { "icon": "location_on", "label": "Location", "value": "Iowa, USA" }
+        ]
+      },
+      "social": {
+        "title": "Connect with me",
+        "links": []
+      }
+    },
+    "footerData": {
+      "name": "Clint Barton",
+      "icon": "insights",
+      "copyright": "© 2025 Clint Barton. All rights reserved.",
+      "socialLinks": []
+    }
+  }
+}
