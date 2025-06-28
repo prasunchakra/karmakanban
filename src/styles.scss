@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use "tailwindcss";
+@import '@angular/material/prebuilt-themes/cyan-orange.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -65,4 +66,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-accent {
   color: var(--accent-color);
+}
+
+/* Force text color on Material chips */
+.mat-mdc-chip .mdc-evolution-chip__text-label {
+  font-weight: bold;
+  color: #075985 !important;
+}
+
+.mat-mdc-chip .mat-mdc-chip-action-label {
+  font-weight: bold;
+  color: #075985 !important;
 }
