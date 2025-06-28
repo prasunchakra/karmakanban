@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -8,85 +8,65 @@ import { MatInputModule } from '@angular/material/input';
   imports: [MatFormFieldModule,MatInputModule,MatButtonModule],
   template: `
      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Get In Touch</h2>
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">{{ contactData.title }}</h2>
         <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
-          Have a project in mind or want to discuss potential opportunities? Feel free to reach out!
+          {{ contactData.description }}
         </p>
         
         <div class="flex flex-col md:flex-row gap-12">
           <div class="md:w-1/2">
             <form class="space-y-6">
               <mat-form-field class="w-full">
-                <mat-label>Your Name</mat-label>
+                <mat-label>{{ contactData.form.nameLabel }}</mat-label>
                 <input matInput type="text" required>
               </mat-form-field>
               
               <mat-form-field class="w-full">
-                <mat-label>Your Email</mat-label>
+                <mat-label>{{ contactData.form.emailLabel }}</mat-label>
                 <input matInput type="email" required>
               </mat-form-field>
               
               <mat-form-field class="w-full">
-                <mat-label>Subject</mat-label>
+                <mat-label>{{ contactData.form.subjectLabel }}</mat-label>
                 <input matInput type="text" required>
               </mat-form-field>
               
               <mat-form-field class="w-full">
-                <mat-label>Your Message</mat-label>
+                <mat-label>{{ contactData.form.messageLabel }}</mat-label>
                 <textarea matInput rows="5" required></textarea>
               </mat-form-field>
               
               <button mat-raised-button color="primary" class="w-full md:w-auto">
-                Send Message
+                {{ contactData.form.submitButton }}
               </button>
             </form>
           </div>
           
           <div class="md:w-1/2">
             <div class="bg-white p-8 rounded-lg shadow-sm h-full">
-              <h3 class="text-xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+              <h3 class="text-xl font-semibold text-gray-800 mb-6">{{ contactData.contactInfo.title }}</h3>
               
               <div class="space-y-6">
+                @for (info of contactData.contactInfo.items; track info.icon) {
                 <div class="flex items-start">
-                  <span class="material-icons primary-text text-2xl mr-4">email</span>
+                  <span class="material-icons primary-text text-2xl mr-4">{{ info.icon }}</span>
                   <div>
-                    <h4 class="text-gray-600 font-medium">Email</h4>
-                    <p class="text-gray-700">john&#64;example.com</p>
+                    <h4 class="text-gray-600 font-medium">{{ info.label }}</h4>
+                    <p class="text-gray-700">{{ info.value }}</p>
                   </div>
                 </div>
-                
-                <div class="flex items-start">
-                  <span class="material-icons primary-text text-2xl mr-4">phone</span>
-                  <div>
-                    <h4 class="text-gray-600 font-medium">Phone</h4>
-                    <p class="text-gray-700">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-                
-                <div class="flex items-start">
-                  <span class="material-icons primary-text text-2xl mr-4">location_on</span>
-                  <div>
-                    <h4 class="text-gray-600 font-medium">Location</h4>
-                    <p class="text-gray-700">San Francisco, CA</p>
-                  </div>
-                </div>
+                }
               </div>
               
               <div class="mt-8">
-                <h4 class="text-gray-600 font-medium mb-4">Connect with me</h4>
+                <h4 class="text-gray-600 font-medium mb-4">{{ contactData.social.title }}</h4>
                 <div class="flex space-x-4">
-                  <a href="#" class="w-10 h-10 rounded-full primary-light-bg flex items-center justify-center primary-text hover:bg-opacity-80 transition">
-                    <span class="material-icons">code</span>
-                  </a>
-                  <a href="#" class="w-10 h-10 rounded-full accent-light-bg flex items-center justify-center accent-text hover:bg-opacity-80 transition">
-                    <span class="material-icons">link</span>
-                  </a>
-                  <a href="#" class="w-10 h-10 rounded-full primary-light-bg flex items-center justify-center primary-text hover:bg-opacity-80 transition">
-                    <span class="material-icons">alternate_email</span>
-                  </a>
-                  <a href="#" class="w-10 h-10 rounded-full accent-light-bg flex items-center justify-center accent-text hover:bg-opacity-80 transition">
-                    <span class="material-icons">chat</span>
-                  </a>
+                  @for (social of contactData.social.links; track social.icon) {
+                    <a [href]="social.link" 
+                       [class]="'w-10 h-10 rounded-full ' + social.bgClass + ' flex items-center justify-center ' + social.textClass + ' hover:bg-opacity-80 transition'">
+                      <span class="material-icons">{{ social.icon }}</span>
+                    </a>
+                  }
                 </div>
               </div>
             </div>
@@ -97,5 +77,5 @@ import { MatInputModule } from '@angular/material/input';
   styles: ``
 })
 export class ProfileContact {
-
+  @Input() contactData: any;
 }
