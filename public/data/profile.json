@@ -54,7 +54,7 @@
           {
             "title": "GammaDB",
             "description": "Real-time, scalable database optimized for handling vast scientific datasets.",
-            "image": "images/project_gamma.png",
+            "image": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["PostgreSQL", "Redis", "Python"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -62,7 +62,7 @@
           {
             "title": "HulkScale",
             "description": "High-performance load balancer auto-scaling microservices during traffic spikes.",
-            "image": "images/project_hulkscale.png",
+            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["Node.js", "Kubernetes", "Docker"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -70,7 +70,7 @@
           {
             "title": "SmashCache",
             "description": "Distributed caching system, reducing latency by 80%.",
-            "image": "images/project_smashcache.png",
+            "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["Redis", "Python", "Grafana"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -161,7 +161,7 @@
           {
             "title": "J.A.R.V.I.S UI",
             "description": "AI-powered interface with intuitive interaction and AR capabilities.",
-            "image": "images/project_jarvis.png",
+            "image": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["React", "Three.js", "WebXR"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -169,7 +169,7 @@
           {
             "title": "StarkFlow",
             "description": "No-code visual web builder with component-level design control.",
-            "image": "images/project_starkflow.png",
+            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["Vue", "Tailwind CSS", "Framer"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -177,7 +177,7 @@
           {
             "title": "IronWeb",
             "description": "Frontend framework optimized for embedded and wearable interfaces.",
-            "image": "images/project_ironweb.png",
+            "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["React Native", "Vite", "TypeScript"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -268,7 +268,7 @@
           {
             "title": "BlackWidow Suite",
             "description": "Penetration testing and vulnerability scanning toolkit.",
-            "image": "images/project_blackwidow.png",
+            "image": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["OWASP", "Burp Suite", "Python"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -276,7 +276,7 @@
           {
            "title": "RedRoom Automation",
             "description": "Automated testing suite reducing regression cycle by 70%.",
-            "image": "images/project_redroom.png",
+            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["Cypress", "Jest", "GitHub Actions"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -284,7 +284,7 @@
           {
             "title": "SecureOps",
             "description": "CI/CD integrated DevSecOps pipeline.",
-            "image": "images/project_secureops.png",
+            "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["Docker", "Jenkins", "Security Scan"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -375,7 +375,7 @@
           {
             "title": "AsgardCloud",
             "description": "Multi-cloud infrastructure automation platform for distributed systems.",
-            "image": "images/project_asgardcloud.png",
+            "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["Terraform", "AWS", "GCP"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -383,7 +383,7 @@
           {
             "title": "MjolnirCI",
             "description": "Lightning-fast CI/CD platform for robust builds and releases.",
-            "image": "images/project_mjolnirci.png",
+            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["Jenkins", "GitHub Actions", "Docker"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -391,7 +391,7 @@
           {
             "title": "ThunderGuard",
             "description": "Incident response and observability platform with 85% uptime improvement.",
-            "image": "images/project_thunderguard.png",
+            "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["Prometheus", "Grafana", "Slack Integration"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -482,7 +482,7 @@
           {
             "title": "ShieldSprint",
             "description": "Agile management framework used across multiple squads to ensure velocity and transparency.",
-            "image": "images/project_shieldsprint.png",
+            "image": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["Scrum", "Jira", "Retrospectives"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -490,7 +490,7 @@
           {
             "title": "CapCoach",
             "description": "Mentorship and upskilling program improving productivity by 60%.",
-            "image": "images/project_capcoach.png",
+            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["Confluence", "Slack", "Workshops"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -498,7 +498,7 @@
           {
            "title": "Project Patriot",
             "description": "Large-scale initiative with cross-functional teams hitting delivery deadlines with zero critical bugs.",
-            "image": "images/project_patriot.png",
+            "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["Trello", "Kanban", "CI/CD Overview"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -589,7 +589,7 @@
           {
             "title": "HawkInsights",
             "description": "Real-time analytics platform delivering actionable insights.",
-            "image": "images/project_hawkinsights.png",
+            "image": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["Power BI", "SQL", "Python"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -597,7 +597,7 @@
           {
             "title": "Bullseye Dashboard",
             "description": "Dashboard suite for performance tracking and executive decision-making.",
-            "image": "images/project_bullseye.png",
+            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["Tableau", "ETL", "Data Warehouse"],
             "demoLink": "#",
             "sourceLink": "#"
@@ -605,7 +605,7 @@
           {
             "title": "ArrowETL",
             "description": "Optimized data pipeline reducing transformation time by 75%.",
-            "image": "images/project_arrowetl.png",
+            "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "technologies": ["Apache Airflow", "Spark", "PostgreSQL"],
             "demoLink": "#",
             "sourceLink": "#"

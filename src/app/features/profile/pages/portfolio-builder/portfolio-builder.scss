@@ -1,0 +1,11 @@
+.bg-white {
+  background-color: white;
+}
+
+.custom-toggle {
+  ::ng-deep .mdc-form-field > label {
+    color: #00bcd4 !important;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+}

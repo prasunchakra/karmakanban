@@ -1,0 +1,18 @@
+<div class="min-h-screen bg-gradient-to-br from-cyan-100 via-white to-orange-100 py-8">
+  <mat-card class="max-w-5xl mx-auto shadow-xl overflow-hidden bg-white">
+    <!-- Form Header -->
+    <div class="bg-cyan-600 p-6 text-white">
+      <h1 class="text-3xl font-bold">Build Your Portfolio</h1>
+      <p class="opacity-90">Showcase your skills and projects in a stunning way</p>
+    </div>
+
+    <form [formGroup]="portfolioForm" (ngSubmit)="onSubmit()" class="p-6">
+      <div class="mb-8 flex items-center gap-4">
+        <mat-slide-toggle color="primary" formControlName="isPublic" class="custom-toggle" matTooltip="Work in progress">
+          Make portfolio public
+        </mat-slide-toggle>
+        <div class="mat-hint">Public portfolios can be viewed by anyone</div>
+      </div>
+    </form>
+  </mat-card>
+</div>

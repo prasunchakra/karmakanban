@@ -6,16 +6,13 @@ import { ProfileSkill } from '../../components/profile-skill';
 import { ProfileProject } from '../../components/profile-project';
 import { ProfileContact } from '../../components/profile-contact';
 import { ProfileFooter } from '../../components/profile-footer';
-import { DynamicPortfolioComponent } from '../../../dynamic-portfolio/dynamic-portfolio.component';
 import { PortfolioService } from '../../../../services/portfolio.service';
-import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ProfileData } from '../../../../types/portfolio';
 
 @Component({
   selector: 'app-portfolio',
   imports: [
-    CommonModule,
     ProfileHeader,
     ProfileHero,
     ProfileAbout,
@@ -23,7 +20,6 @@ import { ProfileData } from '../../../../types/portfolio';
     ProfileProject,
     ProfileContact,
     ProfileFooter,
-    DynamicPortfolioComponent
   ],
   templateUrl: './portfolio.html',
   styleUrl: './portfolio.scss'
@@ -33,11 +29,8 @@ export class Portfolio implements OnInit {
   currentProfile: string | null = null;
   loading = false;
   error = false;
-  constructor(private portfolioService: PortfolioService, private route: ActivatedRoute,) {}
+  constructor(private portfolioService: PortfolioService, private route: ActivatedRoute) {}
   ngOnInit() {
-    // this.portfolioService.portfolioData$.subscribe(data => {
-    //   this.hasUserPortfolio = data !== null;
-    // });
     this.route.paramMap.subscribe((paramMap) => {
       const username = paramMap.get('username');
       if (username) {
