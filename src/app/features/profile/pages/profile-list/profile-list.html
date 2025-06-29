@@ -1,0 +1,136 @@
+<div class="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+        <header class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-8">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+            <button
+              mat-raised-button
+              color="primary"
+              class="text-lg !bg-cyan-800 !text-white py-3 px-8"
+              (click)="navigateToLandingPage()"
+            >
+              Back to Home
+            </button>
+    
+            <div class="text-center order-0 md:order-1">
+              <h1 class="text-xl md:text-5xl font-semibold text-cyan-700 mb-3">
+                Portfolio Gallery
+              </h1>
+              <p class="text-lg md:text-xl text-orange-900 max-w-2xl mx-auto">
+                Your portfolio shows here if it is public.
+              </p>
+            </div>
+    
+            <button
+              mat-raised-button
+              color="accent"
+              class="text-lg py-3 px-8 !bg-orange-800 !text-white order-2"
+              (click)="navigateToPortfolioBuilder()"
+            >
+              Create Your Own Portfolio
+            </button>
+          </div>
+        </div>
+      </header>
+    
+  
+    <!-- Loading State -->
+    @if(loading) {
+      <div class="flex items-center justify-center py-20">
+        <div class="text-center">
+          <mat-spinner diameter="48" color="accent" class="mx-auto mb-4"></mat-spinner>
+          <p class="text-gray-600 text-lg">Loading portfolios...</p>
+        </div>
+      </div>
+    }
+  
+    <!-- Error State -->
+    @else if(error) {
+      <div class="flex items-center justify-center py-20">
+        <div class="text-center max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+          <mat-icon class="text-6xl text-red-500 mb-4">warning</mat-icon>
+          <h2 class="text-2xl font-bold text-gray-800 mb-2">
+            Error Loading Portfolios
+          </h2>
+          <p class="text-gray-600 mb-6">
+            Unable to load the portfolio gallery. Please try again later.
+          </p>
+          <button
+            mat-raised-button
+            color="primary"
+            class="px-6 py-3 text-lg"
+            (click)="loadProfiles()"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    }
+  
+    <!-- Portfolio Grid -->
+    @else if(publicProfiles.length > 0) {
+      <div class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          @for(profile of publicProfiles; track profile.username) {
+            <mat-card
+              class="overflow-hidden bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <!-- Image -->
+              <div class="relative h-56 bg-gradient-to-br from-indigo-100 to-purple-100 animate-fade-in">
+                <img
+                  [src]="profile.image"
+                  [alt]="profile.name"
+                  class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+                
+              </div>
+  
+              <!-- Profile Info -->
+              <mat-card-content class="p-6 animate-slide-up">
+                <div class="mb-4">
+                  <h3 class="text-xl font-semibold text-gray-800 mb-1">
+                    {{ profile.name }}
+                  </h3>
+                  <p class="text-gray-500 text-sm mb-2">{{ profile.title }}</p>
+                  <mat-chip-set>
+                    <mat-chip class="text-lg font-bold">
+                      {{ profile.jobRole }}
+                    </mat-chip>
+                  </mat-chip-set>
+                </div>
+                <p class="text-gray-600 text-sm line-clamp-3">
+                  {{ profile.description }}
+                </p>
+              </mat-card-content>
+  
+              <!-- Action Buttons -->
+              <mat-card-actions class="p-6 pt-0 animate-slide-up">
+                <button
+                  mat-raised-button
+                  color="accent"
+                  class="w-full py-3 text-lg hover:bg-orange-800"
+                  (click)="navigateToPortfolio(profile.username)"
+                >
+                  View Portfolio
+                </button>
+              </mat-card-actions>
+            </mat-card>
+          }
+        </div>
+      </div>
+    }
+  
+    <!-- Empty State -->
+    @else {
+      <div class="flex items-center justify-center py-20">
+        <div class="text-center max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+          <mat-icon class="text-6xl text-gray-400 mb-4">folder_open</mat-icon>
+          <h2 class="text-2xl font-bold text-gray-800 mb-2">
+            No Portfolios Available
+          </h2>
+          <p class="text-gray-600">
+            There are currently no public portfolios to display.
+          </p>
+        </div>
+      </div>
+    }
+  </div>
