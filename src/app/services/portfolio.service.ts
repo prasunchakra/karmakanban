@@ -11,6 +11,9 @@ export class PortfolioService {
   constructor(private http: HttpClient) {}
 
   getProfileData(username: string): Observable<ProfileData | null> {
+    if(username === 'currentUser') {
+      return of(JSON.parse(localStorage.getItem('profile') || '{}'));
+    }
     return this.http.get<any>('/data/profile.json').pipe(
       map((data) => {
         if (data && data[username]) {
@@ -52,5 +55,9 @@ export class PortfolioService {
         return of([]);
       })
     );
+  }
+
+  saveProfile(profile: ProfileData) {
+    localStorage.setItem('profile', JSON.stringify(profile));
   }
 }

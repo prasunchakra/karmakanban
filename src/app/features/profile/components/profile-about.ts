@@ -30,19 +30,19 @@ import { MatIconModule } from '@angular/material/icon';
             <div class="grid grid-cols-2 gap-4 mb-8">
               <div class="flex items-center">
                 <span class="material-icons primary-text mr-2">person</span>
-                <span class="text-gray-700">{{ aboutData.personalInfo.name }}</span>
+                <span class="text-gray-700">{{ aboutData.name }}</span>
               </div>
               <div class="flex items-center">
                 <span class="material-icons primary-text mr-2">email</span>
-                <span class="text-gray-700">{{ aboutData.personalInfo.email }}</span>
+                <span class="text-gray-700">{{ aboutData.email }}</span>
               </div>
               <div class="flex items-center">
                 <span class="material-icons primary-text mr-2">location_on</span>
-                <span class="text-gray-700">{{ aboutData.personalInfo.location }}</span>
+                <span class="text-gray-700">{{ aboutData.location }}</span>
               </div>
               <div class="flex items-center">
                 <span class="material-icons primary-text mr-2">school</span>
-                <span class="text-gray-700">{{ aboutData.personalInfo.education }}</span>
+                <span class="text-gray-700">{{ aboutData.education }}</span>
               </div>
             </div>
             

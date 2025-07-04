@@ -1,3 +1,5 @@
+import { INDUSTRIES_ENUM } from "./profile";
+
  export interface HeaderData {
   name: string;
   icon: string;
@@ -20,12 +22,9 @@
     image: string;
     whoIAmDescription: string;
     additionalDescription: string;
-    personalInfo: {
-    name: string;
     email: string;
     location: string;
     education: string;
-    }
   }
   export interface SkillData {
     title: string;
@@ -88,8 +87,8 @@
     }[];
   }
   export interface ProfileData {
-    isPublic?: boolean;
-    category?: string;
+    isPublic: boolean;
+    industry: string;
     headerData: HeaderData;
     heroData: HeroData;
     aboutData: AboutData;

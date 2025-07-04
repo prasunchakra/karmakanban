@@ -7,12 +7,174 @@
     </div>
 
     <form [formGroup]="portfolioForm" (ngSubmit)="onSubmit()" class="p-6">
+      <!-- Visibility Toggle -->
       <div class="mb-8 flex items-center gap-4">
         <mat-slide-toggle color="primary" formControlName="isPublic" class="custom-toggle" matTooltip="Work in progress">
           Make portfolio public
         </mat-slide-toggle>
         <div class="mat-hint">Public portfolios can be viewed by anyone</div>
       </div>
+
+      <!-- Industry Select -->
+      <mat-form-field appearance="fill" class="w-full mb-6">
+        <mat-label>Industry you belong to</mat-label>
+        <mat-select formControlName="industry">
+          @for (industry of industries; track industry.value) {
+            <mat-option [value]="industry.value">
+              {{ industry.label }}
+            </mat-option>
+          }
+        </mat-select>
+        <mat-icon matSuffix>category</mat-icon>
+      </mat-form-field>
+
+      <!-- Hero Section -->
+      <mat-card class="mb-8" formGroupName="heroData">
+        <mat-card-header class="bg-indigo-50 p-4 border-b">
+          <mat-card-title class="text-xl">Hero Section</mat-card-title>
+          <mat-card-subtitle>Your introduction and main call-to-action</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Your Name</mat-label>
+            <input matInput formControlName="name">
+            @if (portfolioForm.get('heroData.name')?.hasError('required')) {
+              <mat-error>
+                Name is required
+              </mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Professional Title</mat-label>
+            <input matInput formControlName="title">
+            @if (portfolioForm.get('heroData.title')?.hasError('required')) {
+              <mat-error>
+                Title is required
+              </mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Specialization</mat-label>
+            <input matInput formControlName="specialization">
+            @if (portfolioForm.get('heroData.specialization')?.hasError('required')) {
+              <mat-error>
+                Specialization is required
+              </mat-error>
+            }
+          </mat-form-field>
+
+          <div class="w-full">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Profile Image</label>
+            <p class="text-xs text-gray-500 mb-2">Maximum file size: 1MB. Supported formats: JPG, PNG, GIF, WebP</p>
+            <app-file-upload
+              [value]="portfolioForm.get('heroData.image')?.value"
+              (valueChange)="onImageUpload($event, 'heroData')"
+              placeholder="Upload your profile image"
+              accept="image/*"
+              [maxSize]="1 * 1024 * 1024"
+            ></app-file-upload>
+            @if (portfolioForm.get('heroData.image')?.hasError('required') && portfolioForm.get('heroData.image')?.touched) {
+              <div class="text-red-500 text-sm mt-1">
+                Profile image is required
+              </div>
+            }
+          </div>
+
+          <mat-form-field appearance="fill" class="w-full md:col-span-2">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" rows="3"></textarea>
+            @if (portfolioForm.get('heroData.description')?.hasError('required')) {
+              <mat-error>
+                Description is required
+              </mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Primary Action</mat-label>
+            <input matInput formControlName="primaryButton">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Secondary Action</mat-label>
+            <input matInput formControlName="secondaryButton">
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- About Section -->
+      <mat-card class="mb-8" formGroupName="aboutData">
+        <mat-card-header class="bg-indigo-50 p-4 border-b">
+          <mat-card-title class="text-xl">About Section</mat-card-title>
+          <mat-card-subtitle>Tell people about yourself</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="w-full">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Profile Image</label>
+            <p class="text-xs text-gray-500 mb-2">Maximum file size: 1MB. Supported formats: JPG, PNG, GIF, WebP</p>
+            <app-file-upload
+              [value]="portfolioForm.get('aboutData.image')?.value"
+              (valueChange)="onImageUpload($event, 'aboutData')"
+              placeholder="Upload your profile image"
+              accept="image/*"
+              [maxSize]="1 * 1024 * 1024"
+            ></app-file-upload>
+            @if (portfolioForm.get('aboutData.image')?.hasError('required') && portfolioForm.get('aboutData.image')?.touched) {
+              <div class="text-red-500 text-sm mt-1">
+                Profile image is required
+              </div>
+            }
+          </div>
+  
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Who I Am Description</mat-label>
+            <textarea matInput formControlName="whoIAmDescription" rows="3" required></textarea>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" class="w-full md:col-span-2">
+            <mat-label>Additional Description</mat-label>
+            <textarea matInput formControlName="additionalDescription" rows="3" required></textarea>
+          </mat-form-field>
+  
+          <h3 class="text-lg font-medium md:col-span-2 mt-4 mb-2">Personal Information</h3>
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" required>
+            @if (portfolioForm.get('email')?.hasError('required')) {
+              <mat-error>
+                Email is required
+              </mat-error>
+            }
+            @if (portfolioForm.get('email')?.hasError('email')) {
+              <mat-error>
+                Please enter a valid email
+              </mat-error>
+            }
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Location</mat-label>
+            <input matInput formControlName="location" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Education</mat-label>
+            <input matInput formControlName="education" required>
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Form Actions -->
+    <div class="flex justify-end gap-4 mt-8">
+      <button mat-stroked-button color="warn" type="button" class="px-6 py-2" (click)="resetForm()">
+        Reset
+      </button>
+      <button mat-raised-button color="primary" type="submit" class="px-6 py-2">
+        <mat-icon>save</mat-icon> Save Portfolio
+      </button>
+    </div>
     </form>
   </mat-card>
 </div>

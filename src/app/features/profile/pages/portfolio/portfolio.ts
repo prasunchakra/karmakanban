@@ -9,6 +9,7 @@ import { ProfileFooter } from '../../components/profile-footer';
 import { PortfolioService } from '../../../../services/portfolio.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProfileData } from '../../../../types/portfolio';
+import { HEADER_DATA, INDUSTRY_ICONS } from '../../../../types/profile';
 
 @Component({
   selector: 'app-portfolio',
@@ -46,9 +47,10 @@ export class Portfolio implements OnInit {
     this.portfolioService.getProfileData(username).subscribe({
       next: (data) => {
         if (data) {
-          this.portfolioData = data;
+          this.portfolioData = this.mapProfileData(data);
           this.currentProfile = username;
           this.loading = false;
+          console.log(this.portfolioData);
         } else {
           this.error = true;
           this.loading = false;
@@ -61,5 +63,32 @@ export class Portfolio implements OnInit {
         console.error('Error loading profile data:', error);
       }
     });
+  }
+  mapProfileData(profileData: ProfileData): any {
+    return {
+      headerData: {
+        ...HEADER_DATA,
+        name: profileData.heroData.name,
+        icon: INDUSTRY_ICONS[profileData.industry as keyof typeof INDUSTRY_ICONS],
+      },
+      heroData: {
+        name: profileData.heroData.name,
+        title: profileData.heroData.title,
+        specialization: profileData.heroData.specialization,
+        description: profileData.heroData.description,
+        image: profileData.heroData.image,
+        primaryButton: profileData.heroData.primaryButton,
+        secondaryButton: profileData.heroData.secondaryButton,
+      },
+      aboutData: {
+        name: profileData.heroData.name,
+        whoIAmDescription: profileData.aboutData.whoIAmDescription,
+        additionalDescription: profileData.aboutData.additionalDescription,
+        email: profileData.aboutData.email,
+        location: profileData.aboutData.location,
+        education: profileData.aboutData.education,
+        image: profileData.aboutData.image,
+      },
+    }
   }
 }
