@@ -1,0 +1,136 @@
+.file-upload-container {
+    width: 100%;
+  }
+  
+  .upload-area {
+    border: 2px dashed #d1d5db;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #f9fafb;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .upload-area:hover {
+    border-color: #3b82f6;
+    background-color: #eff6ff;
+  }
+  
+  .upload-area.dragover {
+    border-color: #3b82f6;
+    background-color: #eff6ff;
+    transform: scale(1.02);
+  }
+  
+  .upload-area.has-file {
+    border-style: solid;
+    border-color: #10b981;
+    background-color: #f0fdf4;
+  }
+  
+  .upload-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .upload-icon {
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
+    color: #6b7280;
+  }
+  
+  .upload-text {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #374151;
+    margin: 0;
+  }
+  
+  .upload-hint {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+  }
+  
+  .file-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .preview-image {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .file-icon {
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
+    color: #6b7280;
+  }
+  
+  .file-info {
+    text-align: center;
+  }
+  
+  .file-name {
+    font-weight: 500;
+    color: #374151;
+    margin: 0 0 0.25rem 0;
+    word-break: break-all;
+  }
+  
+  .file-size {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+  }
+  
+  .upload-progress {
+    margin-top: 1rem;
+  }
+  
+  .progress-text {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0.5rem 0 0 0;
+  }
+  
+  .upload-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .error-message {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: #fef2f2;
+    border-radius: 4px;
+  }
+  
+  .error-icon {
+    font-size: 1rem;
+    width: 1rem;
+    height: 1rem;
+  }

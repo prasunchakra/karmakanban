@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -58,7 +58,39 @@ export class PortfolioBuilder implements OnInit {
         location: ['', Validators.required],
         education: ['', Validators.required],
         image: ['', Validators.required]
-      })
+      }),
+      skillData: this.fb.group({
+        title: ['', Validators.required],
+        description: ['', Validators.required],
+        categories: this.fb.array([this.createSkillCategory()])
+      }),
+      projectData: this.fb.group({
+        title: ['', Validators.required],
+        description: ['', Validators.required],
+        demoText: ['', Validators.required],
+        sourceText: ['', Validators.required],
+        viewAllButton: ['', Validators.required],
+        projects: this.fb.array([this.createProjectItem()])
+      }),
+      contactData: this.fb.group({
+        title: ['', Validators.required],
+        description: ['', Validators.required],
+        form: this.fb.group({
+          nameLabel: ['', Validators.required],
+          emailLabel: ['', Validators.required],
+          subjectLabel: ['', Validators.required],
+          messageLabel: ['', Validators.required],
+          submitButton: ['', Validators.required]
+        }),
+        contactInfo: this.fb.group({
+          title: ['', Validators.required],
+          items: this.fb.array([this.createContactInfoItem()])
+        }),
+        social: this.fb.group({
+          title: ['', Validators.required],
+          links: this.fb.array([this.createSocialLink()])
+        })
+      }),
     });
   }
 
@@ -88,4 +120,113 @@ export class PortfolioBuilder implements OnInit {
     this.portfolioForm.reset();
   }
   
+  createSkillCategory(): FormGroup {
+    return this.fb.group({
+      title: ['', Validators.required],
+      icon: ['', Validators.required],
+      skills: this.fb.array([this.fb.control('', Validators.required)])
+    });
+  }
+  
+  get categories(): FormArray {
+    return this.portfolioForm.get('skillData.categories') as FormArray;
+  }
+
+  addCategory(): void {
+    this.categories.push(this.createSkillCategory());
+  }
+
+  removeCategory(index: number): void {
+    this.categories.removeAt(index);
+  }
+
+  getSkills(categoryIndex: number): FormArray {
+    return this.categories.at(categoryIndex).get('skills') as FormArray;
+  }
+
+  addSkill(categoryIndex: number): void {
+    this.getSkills(categoryIndex).push(this.fb.control('', Validators.required));
+  }
+
+  removeSkill(categoryIndex: number, skillIndex: number): void {
+    this.getSkills(categoryIndex).removeAt(skillIndex);
+  }
+
+  // Project Methods
+  createProjectItem(): FormGroup {
+    return this.fb.group({
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      technologies: this.fb.array([this.fb.control('', Validators.required)]),
+      demoLink: ['', Validators.required],
+      sourceLink: ['', Validators.required],
+      image: ['', Validators.required]
+    });
+  }
+
+  get projects(): FormArray {
+    return this.portfolioForm.get('projectData.projects') as FormArray;
+  }
+
+  addProject(): void {
+    this.projects.push(this.createProjectItem());
+  }
+
+  removeProject(index: number): void {
+    this.projects.removeAt(index);
+  }
+
+  getTechnologies(projectIndex: number): FormArray {
+    return this.projects.at(projectIndex).get('technologies') as FormArray;
+  }
+
+  addTechnology(projectIndex: number): void {
+    this.getTechnologies(projectIndex).push(this.fb.control('', Validators.required));
+  }
+
+  removeTechnology(projectIndex: number, techIndex: number): void {
+    this.getTechnologies(projectIndex).removeAt(techIndex);
+  }
+
+  // Social Links Methods
+  createSocialLink(): FormGroup {
+    return this.fb.group({
+      icon: ['', Validators.required],
+      label: ['', Validators.required],
+      link: ['', Validators.required]
+    });
+  }
+
+  get socialLinks(): FormArray {
+    return this.portfolioForm.get('contactData.social.links') as FormArray;
+  }
+
+  addSocialLink(): void {
+    this.socialLinks.push(this.createSocialLink());
+  }
+
+  removeSocialLink(index: number): void {
+    this.socialLinks.removeAt(index);
+  }
+
+  // Contact Info Methods
+  createContactInfoItem(): FormGroup {
+    return this.fb.group({
+      icon: ['', Validators.required],
+      label: ['', Validators.required],
+      value: ['', Validators.required]
+    });
+  }
+
+  get contactItems(): FormArray {
+    return this.portfolioForm.get('contactData.contactInfo.items') as FormArray;
+  }
+
+  addContactItem(): void {
+    this.contactItems.push(this.createContactInfoItem());
+  }
+
+  removeContactItem(index: number): void {
+    this.contactItems.removeAt(index);
+  }
 }

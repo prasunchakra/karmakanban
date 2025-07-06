@@ -18,7 +18,7 @@
       <!-- Industry Select -->
       <mat-form-field appearance="fill" class="w-full mb-6">
         <mat-label>Industry you belong to</mat-label>
-        <mat-select formControlName="industry">
+        <mat-select formControlName="industry" color="primary">
           @for (industry of industries; track industry.value) {
             <mat-option [value]="industry.value">
               {{ industry.label }}
@@ -29,12 +29,13 @@
       </mat-form-field>
 
       <!-- Hero Section -->
-      <mat-card class="mb-8" formGroupName="heroData">
-        <mat-card-header class="bg-indigo-50 p-4 border-b">
+      <mat-card class="mb-8 bg-white" formGroupName="heroData">
+        <mat-card-header class="bg-cyan-50 p-4 border-b">
           <mat-card-title class="text-xl">Hero Section</mat-card-title>
           <mat-card-subtitle>Your introduction and main call-to-action</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-4"></div>
+        <mat-card-content class="p-6 grid grid-cols-2 gap-6">
           <mat-form-field appearance="fill" class="w-full">
             <mat-label>Your Name</mat-label>
             <input matInput formControlName="name">
@@ -44,8 +45,8 @@
               </mat-error>
             }
           </mat-form-field>
-
-          <mat-form-field appearance="fill" class="w-full">
+          <div class="flex gap-6 col-span-2">
+          <mat-form-field appearance="fill" class="flex-1">
             <mat-label>Professional Title</mat-label>
             <input matInput formControlName="title">
             @if (portfolioForm.get('heroData.title')?.hasError('required')) {
@@ -55,7 +56,7 @@
             }
           </mat-form-field>
 
-          <mat-form-field appearance="fill" class="w-full">
+          <mat-form-field appearance="fill" class="flex-1">
             <mat-label>Specialization</mat-label>
             <input matInput formControlName="specialization">
             @if (portfolioForm.get('heroData.specialization')?.hasError('required')) {
@@ -64,8 +65,8 @@
               </mat-error>
             }
           </mat-form-field>
-
-          <div class="w-full">
+          </div>
+          <div class="w-full col-span-2">
             <label class="block text-sm font-medium text-gray-700 mb-2">Profile Image</label>
             <p class="text-xs text-gray-500 mb-2">Maximum file size: 1MB. Supported formats: JPG, PNG, GIF, WebP</p>
             <app-file-upload
@@ -82,7 +83,7 @@
             }
           </div>
 
-          <mat-form-field appearance="fill" class="w-full md:col-span-2">
+          <mat-form-field appearance="fill" class="w-full col-span-2 mt-4">
             <mat-label>Description</mat-label>
             <textarea matInput formControlName="description" rows="3"></textarea>
             @if (portfolioForm.get('heroData.description')?.hasError('required')) {
@@ -91,78 +92,375 @@
               </mat-error>
             }
           </mat-form-field>
-
-          <mat-form-field appearance="fill" class="w-full">
-            <mat-label>Primary Action</mat-label>
-            <input matInput formControlName="primaryButton">
-          </mat-form-field>
-
-          <mat-form-field appearance="fill" class="w-full">
-            <mat-label>Secondary Action</mat-label>
-            <input matInput formControlName="secondaryButton">
-          </mat-form-field>
         </mat-card-content>
       </mat-card>
 
       <!-- About Section -->
-      <mat-card class="mb-8" formGroupName="aboutData">
-        <mat-card-header class="bg-indigo-50 p-4 border-b">
+      <mat-card class="mb-8 bg-white" formGroupName="aboutData">
+        <mat-card-header class="bg-cyan-50 p-4 border-b">
           <mat-card-title class="text-xl">About Section</mat-card-title>
           <mat-card-subtitle>Tell people about yourself</mat-card-subtitle>
         </mat-card-header>
+        <div class="p-4"></div>
         <mat-card-content class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="w-full">
-            <label class="block text-sm font-medium text-gray-700 mb-2">Profile Image</label>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Casual Image</label>
             <p class="text-xs text-gray-500 mb-2">Maximum file size: 1MB. Supported formats: JPG, PNG, GIF, WebP</p>
             <app-file-upload
               [value]="portfolioForm.get('aboutData.image')?.value"
               (valueChange)="onImageUpload($event, 'aboutData')"
-              placeholder="Upload your profile image"
+              placeholder="Upload your casual image showing your Off-Duty Vibes"
               accept="image/*"
               [maxSize]="1 * 1024 * 1024"
             ></app-file-upload>
             @if (portfolioForm.get('aboutData.image')?.hasError('required') && portfolioForm.get('aboutData.image')?.touched) {
               <div class="text-red-500 text-sm mt-1">
-                Profile image is required
+                Casual image is required
               </div>
             }
           </div>
   
-          <mat-form-field appearance="fill" class="w-full">
-            <mat-label>Who I Am Description</mat-label>
+          <mat-form-field appearance="fill" class="w-full mt-4">
+            <mat-label>Describe your professional journey</mat-label>
             <textarea matInput formControlName="whoIAmDescription" rows="3" required></textarea>
           </mat-form-field>
   
-          <mat-form-field appearance="fill" class="w-full md:col-span-2">
-            <mat-label>Additional Description</mat-label>
+          <mat-form-field appearance="fill" class="w-full md:col-span-2 mt-4">
+            <mat-label>Describe your personal journey, your hobbies, etc.</mat-label>
             <textarea matInput formControlName="additionalDescription" rows="3" required></textarea>
           </mat-form-field>
   
           <h3 class="text-lg font-medium md:col-span-2 mt-4 mb-2">Personal Information</h3>
           <mat-form-field appearance="fill" class="w-full">
-            <mat-label>Email</mat-label>
-            <input matInput type="email" formControlName="email" required>
-            @if (portfolioForm.get('email')?.hasError('required')) {
-              <mat-error>
-                Email is required
-              </mat-error>
-            }
-            @if (portfolioForm.get('email')?.hasError('email')) {
-              <mat-error>
-                Please enter a valid email
-              </mat-error>
-            }
-          </mat-form-field>
-  
-          <mat-form-field appearance="fill" class="w-full">
-            <mat-label>Location</mat-label>
-            <input matInput formControlName="location" required>
-          </mat-form-field>
-  
-          <mat-form-field appearance="fill" class="w-full">
-            <mat-label>Education</mat-label>
+            <mat-label>Highest Professional Qualification</mat-label>
             <input matInput formControlName="education" required>
           </mat-form-field>
+
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Highest Academic Qualification</mat-label>
+            <input matInput formControlName="location" required>
+          </mat-form-field>
+          <div class="flex gap-6 col-span-2">
+            <mat-form-field appearance="fill" class="flex-1">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" formControlName="email" required>
+              @if (portfolioForm.get('email')?.hasError('required')) {
+                <mat-error>
+                  Email is required
+                </mat-error>
+              }
+              @if (portfolioForm.get('email')?.hasError('email')) {
+                <mat-error>
+                  Please enter a valid email
+                </mat-error>
+              }
+            </mat-form-field>
+  
+            <mat-form-field appearance="fill" class="flex-1">
+              <mat-label>Location, Country, City</mat-label>
+              <input matInput formControlName="location" required>
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Skills Section -->
+      <mat-card class="mb-8 bg-white" formGroupName="skillData">
+        <mat-card-header class="bg-orange-50 p-4 border-b">
+          <mat-card-title class="text-xl">Skills Section</mat-card-title>
+          <mat-card-subtitle>Showcase your expertise</mat-card-subtitle>
+        </mat-card-header>
+        <div class="p-4"></div>
+        <mat-card-content class="p-6">
+          <div formArrayName="categories">
+            @for(category of categories.controls; track category; let i = $index) {
+            <div [formGroupName]="i" class="mb-6 p-4 border rounded-lg">
+              <div class="flex justify-between items-center mb-4">
+                <h4 class="text-lg font-medium">Skill Category {{i + 1}}</h4>
+                <button mat-icon-button color="warn" (click)="removeCategory(i)" type="button">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+  
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <mat-form-field appearance="fill" class="w-full">
+                  <mat-label>Category Title</mat-label>
+                  <input matInput formControlName="title" required>
+                </mat-form-field>
+  
+                <mat-form-field appearance="fill" class="w-full">
+                  <mat-label>Category Icon</mat-label>
+                  <input matInput formControlName="icon" required>
+                  <mat-icon matSuffix>emoji_objects</mat-icon>
+                </mat-form-field>
+              </div>
+  
+              <div formArrayName="skills" class="mt-4">
+                <div class="flex justify-between items-center mb-2">
+                  <h5 class="font-medium">Skills</h5>
+                  <button mat-button color="primary" (click)="addSkill(i)" type="button">
+                    <mat-icon>add</mat-icon> Add Skill
+                  </button>
+                </div>
+  
+                @for(skill of getSkills(i).controls; track skill; let j = $index) {
+                <div class="flex items-center gap-2 mb-2">
+                  <mat-form-field appearance="fill" class="flex-grow">
+                    <input matInput [formControlName]="j" required>
+                  </mat-form-field>
+                  <button mat-icon-button color="warn" (click)="removeSkill(i, j)" type="button">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </div>
+                }
+              </div>
+            </div>
+            }
+          </div>
+  
+          <button mat-stroked-button color="primary" (click)="addCategory()" type="button" class="mt-4">
+            <mat-icon>add</mat-icon> Add Skill Category
+          </button>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Projects Section -->
+      <mat-card class="mb-8 bg-white" formGroupName="projectData">
+        <mat-card-header class="bg-orange-50 p-4 border-b">
+          <mat-card-title class="text-xl">Projects Section</mat-card-title>
+          <mat-card-subtitle>Highlight your best work</mat-card-subtitle>
+        </mat-card-header>
+        <div class="p-4"></div>
+        <mat-card-content class="p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Section Title</mat-label>
+              <input matInput formControlName="title" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Description</mat-label>
+              <input matInput formControlName="description" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Demo Button Text</mat-label>
+              <input matInput formControlName="demoText" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Source Button Text</mat-label>
+              <input matInput formControlName="sourceText" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full md:col-span-2">
+              <mat-label>View All Button Text</mat-label>
+              <input matInput formControlName="viewAllButton" required>
+            </mat-form-field>
+          </div>
+
+          <div formArrayName="projects">
+            @for(project of projects.controls; track project; let i = $index) {
+            <div [formGroupName]="i" class="mb-6 p-4 border rounded-lg">
+              <div class="flex justify-between items-center mb-4">
+                <h4 class="text-lg font-medium">Project {{i + 1}}</h4>
+                <button mat-icon-button color="warn" (click)="removeProject(i)" type="button">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <mat-form-field appearance="fill" class="w-full">
+                  <mat-label>Project Title</mat-label>
+                  <input matInput formControlName="title" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="w-full">
+                  <mat-label>Project Image URL</mat-label>
+                  <input matInput formControlName="image" required>
+                  <mat-icon matSuffix>image</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="w-full md:col-span-2">
+                  <mat-label>Description</mat-label>
+                  <textarea matInput formControlName="description" rows="3" required></textarea>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="w-full">
+                  <mat-label>Demo Link</mat-label>
+                  <input matInput formControlName="demoLink" required>
+                  <mat-icon matSuffix>link</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="w-full">
+                  <mat-label>Source Link</mat-label>
+                  <input matInput formControlName="sourceLink" required>
+                  <mat-icon matSuffix>code</mat-icon>
+                </mat-form-field>
+
+                <div formArrayName="technologies" class="md:col-span-2">
+                  <div class="flex justify-between items-center mb-2">
+                    <h5 class="font-medium">Technologies</h5>
+                    <button mat-button color="primary" (click)="addTechnology(i)" type="button">
+                      <mat-icon>add</mat-icon> Add Technology
+                    </button>
+                  </div>
+
+                  @for(tech of getTechnologies(i).controls; track tech; let j = $index) {
+                  <div class="flex items-center gap-2 mb-2">
+                    <mat-form-field appearance="fill" class="flex-grow">
+                      <input matInput [formControlName]="j" required>
+                    </mat-form-field>
+                    <button mat-icon-button color="warn" (click)="removeTechnology(i, j)" type="button">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                  </div>
+                  }
+                </div>
+              </div>
+            </div>
+            }
+          </div>
+
+          <button mat-stroked-button color="primary" (click)="addProject()" type="button" class="mt-4">
+            <mat-icon>add</mat-icon> Add Project
+          </button>
+        </mat-card-content>
+      </mat-card>
+  
+      <!-- Contact Section -->
+      <mat-card class="mb-8 bg-white" formGroupName="contactData">
+        <mat-card-header class="bg-orange-50 p-4 border-b">
+          <mat-card-title class="text-xl">Contact Section</mat-card-title>
+          <mat-card-subtitle>Let people reach out to you</mat-card-subtitle>
+        </mat-card-header>
+        <div class="p-4"></div>
+        <mat-card-content class="p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Section Title</mat-label>
+              <input matInput formControlName="title" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Description</mat-label>
+              <input matInput formControlName="description" required>
+            </mat-form-field>
+          </div>
+
+          <h3 class="text-lg font-medium mb-4">Contact Form</h3>
+          <div formGroupName="form" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Name Label</mat-label>
+              <input matInput formControlName="nameLabel" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Email Label</mat-label>
+              <input matInput formControlName="emailLabel" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Subject Label</mat-label>
+              <input matInput formControlName="subjectLabel" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Message Label</mat-label>
+              <input matInput formControlName="messageLabel" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Submit Button Text</mat-label>
+              <input matInput formControlName="submitButton" required>
+            </mat-form-field>
+          </div>
+
+          <h3 class="text-lg font-medium mb-4">Contact Information</h3>
+          <div formGroupName="contactInfo" class="mb-8">
+            <mat-form-field appearance="fill" class="w-full mb-4">
+              <mat-label>Section Title</mat-label>
+              <input matInput formControlName="title" required>
+            </mat-form-field>
+
+            <div formArrayName="items">
+              @for(item of contactItems.controls; track item; let i = $index) {
+              <div [formGroupName]="i" class="mb-4 p-4 border rounded-lg">
+                <div class="flex justify-between items-center mb-2">
+                  <h4 class="font-medium">Contact Item {{i + 1}}</h4>
+                  <button mat-icon-button color="warn" (click)="removeContactItem(i)" type="button">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Icon</mat-label>
+                    <input matInput formControlName="icon" required>
+                    <mat-icon matSuffix>emoji_symbols</mat-icon>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Label</mat-label>
+                    <input matInput formControlName="label" required>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Value</mat-label>
+                    <input matInput formControlName="value" required>
+                  </mat-form-field>
+                </div>
+              </div>
+              }
+            </div>
+
+            <button mat-stroked-button color="primary" (click)="addContactItem()" type="button">
+              <mat-icon>add</mat-icon> Add Contact Info
+            </button>
+          </div>
+
+          <h3 class="text-lg font-medium mb-4">Social Links</h3>
+          <div formGroupName="social" class="mb-8">
+            <mat-form-field appearance="fill" class="w-full mb-4">
+              <mat-label>Section Title</mat-label>
+              <input matInput formControlName="title" required>
+            </mat-form-field>
+
+            <div formArrayName="links">
+              @for(link of socialLinks.controls; track link; let i = $index) {
+              <div [formGroupName]="i" class="mb-4 p-4 border rounded-lg">
+                <div class="flex justify-between items-center mb-2">
+                  <h4 class="font-medium">Social Link {{i + 1}}</h4>
+                  <button mat-icon-button color="warn" (click)="removeSocialLink(i)" type="button">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Icon</mat-label>
+                    <input matInput formControlName="icon" required>
+                    <mat-icon matSuffix>share</mat-icon>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Label</mat-label>
+                    <input matInput formControlName="label" required>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Link</mat-label>
+                    <input matInput formControlName="link" required>
+                  </mat-form-field>
+                </div>
+              </div>
+              }
+            </div>
+
+            <button mat-stroked-button color="primary" (click)="addSocialLink()" type="button">
+              <mat-icon>add</mat-icon> Add Social Link
+            </button>
+          </div>
         </mat-card-content>
       </mat-card>
 

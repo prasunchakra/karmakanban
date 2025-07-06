@@ -9,3 +9,17 @@
     font-weight: 500;
   }
 }
+
+::ng-deep mat-card-subtitle {
+  color: #4b5563 !important;
+  font-size: 0.875rem !important;
+  margin-top: 0.25rem !important;
+  opacity: 1 !important;
+}
+
+::ng-deep .mat-mdc-card-subtitle {
+  color: #4b5563 !important;
+  font-size: 0.875rem !important;
+  margin-top: 0.25rem !important;
+  opacity: 1 !important;
+}
