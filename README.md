@@ -1,261 +1,173 @@
-# Angular 20 Beyond Basics: UI Magic (Material + Tailwind)
-
-## Topics Covered
-
-### Angular 20 Fundamentals
-- Standalone Components Architecture
-- Component Import Management
-- Angular Material Integration
-- TypeScript Type Safety
-- Component Communication Patterns
-
-### Tailwind CSS 4 Integration
-- PostCSS Configuration
-- CSS-first Approach
-- Utility-First Styling
-- Responsive Design Implementation
-- Custom CSS Overrides
-
-### Angular Material Design
-- Material Component Integration
-- Icon System Implementation
-- Button Styling and Customization
-- Form Field Components
-- Card and Layout Components
-
-### Project Architecture
-- Feature-Based Folder Structure
-- Component Modularity
-- Styling Strategy
-- Performance Optimization
-- Build Configuration
-
-### Development Best Practices
-- Code Organization
-- Styling Methodology
-- Component Reusability
-- Responsive Design
-- Accessibility Considerations
+# Karmakanban: Portfolio Gallary
 
 ## Quiz Section
 
-### 1. What is the correct way to import Angular Material components in a standalone component?
+### 1. What is the new Angular control flow syntax for iterating over arrays?
 
-- A: `import { MatButton } from '@angular/material/button'`
-- B: `import { MatButtonModule } from '@angular/material/button'`
-- C: `import { Button } from '@angular/material'`
-- D: `import { MatButton } from '@angular/material'`
-
-<details>
-<summary><b>Answer</b></summary>
-
-#### Answer: B
-
-The correct way is `import { MatButtonModule } from '@angular/material/button'`. Angular Material components are organized as modules, and you need to import the specific module (e.g., MatButtonModule) to use the component in your standalone component.
-</details>
-
----
-
-### 2. Which directive is used to apply Tailwind CSS classes conditionally in Angular templates?
-
-- A: `*ngClass`
-- B: `[class]`
-- C: `ngClass`
-- D: All of the above
-
-<details>
-<summary><b>Answer</b></summary>
-
-#### Answer: D
-
-All three options can be used to apply Tailwind CSS classes conditionally:
-- `*ngClass` for structural directives
-- `[class]` for property binding
-- `ngClass` for multiple class bindings
-</details>
-
----
-
-### 3. What is the purpose of the `standalone: true` property in Angular components?
-
-- A: Makes the component independent of modules
-- B: Reduces bundle size through tree-shaking
-- C: Improves performance
-- D: All of the above
-
-<details>
-<summary><b>Answer</b></summary>
-
-#### Answer: D
-
-The `standalone: true` property makes components independent of NgModules, enables better tree-shaking for smaller bundle sizes, and improves overall performance by reducing the need for module declarations.
-</details>
-
----
-
-### 4. How do you properly override Material Design icon colors in Angular?
-
-- A: Use Tailwind classes directly
-- B: Use CSS with `!important`
-- C: Use Angular Material theming
-- D: Use inline styles
+- A: `*ngFor="let item of items"`
+- B: `@for (item of items; track item.id) { ... }`
+- C: `@repeat (item of items) { ... }`
+- D: `@loop (item of items) { ... }`
 
 <details>
 <summary><b>Answer</b></summary>
 
 #### Answer: B
 
-Material Design icons have their own styling that can override custom colors. The best approach is to use CSS with `!important` to ensure your custom colors are applied: `mat-icon { color: #4f46e5 !important; }`
+The new Angular control flow syntax is `@for (item of items; track item.id) { ... }`. This replaces the older `*ngFor` directive and provides better performance with built-in tracking.
 </details>
 
 ---
 
-### 5. What is the correct PostCSS configuration for Tailwind CSS 4?
+### 2. How do you configure dynamic routing with route parameters in Angular?
 
-- A: `tailwind.config.js` file
-- B: `.postcssrc.json` file
-- C: `postcss.config.js` file
-- D: All of the above
-
-<details>
-<summary><b>Answer</b></summary>
-
-#### Answer: B
-
-For Tailwind CSS 4, the correct configuration is in `.postcssrc.json`:
-```json
-{
-  "plugins": {
-    "@tailwindcss/postcss": {}
-  }
-}
-```
-</details>
-
----
-
-### 6. Which Angular Material component is used for displaying icons?
-
-- A: `<mat-icon>`
-- B: `<material-icon>`
-- C: `<icon>`
-- D: `<md-icon>`
+- A: `{ path: 'portfolio/:username', component: Portfolio }`
+- B: `{ path: 'portfolio/{username}', component: Portfolio }`
+- C: `{ path: 'portfolio/[username]', component: Portfolio }`
+- D: `{ path: 'portfolio/{{username}}', component: Portfolio }`
 
 <details>
 <summary><b>Answer</b></summary>
 
 #### Answer: A
 
-The correct Angular Material component for displaying icons is `<mat-icon>`. It provides proper Material Design icon rendering and accessibility features.
+Dynamic routing with route parameters uses the colon syntax: `{ path: 'portfolio/:username', component: Portfolio }`. The `:username` is a route parameter that can be accessed in the component using `ActivatedRoute`.
 </details>
 
 ---
 
-### 7. What is the main difference between Tailwind CSS 4 and previous versions?
+### 3. How do you access route parameters in an Angular component?
 
-- A: CSS-first approach instead of JavaScript configuration
-- B: Different color palette
-- C: New utility classes
-- D: Different build process
-
-<details>
-<summary><b>Answer</b></summary>
-
-#### Answer: A
-
-Tailwind CSS 4 introduces a CSS-first approach using `@config`, `@theme`, and `@plugin` directives directly in CSS, moving away from JavaScript-based configuration files like `tailwind.config.js`.
-</details>
-
----
-
-### 8. How do you import Tailwind CSS in your global styles with v4?
-
-- A: `@import "tailwindcss";`
-- B: `@use "tailwindcss";`
-- C: `@include "tailwindcss";`
-- D: `@require "tailwindcss";`
+- A: `this.route.params.subscribe(params => { ... })`
+- B: `this.route.paramMap.subscribe(paramMap => { ... })`
+- C: `this.route.queryParams.subscribe(params => { ... })`
+- D: `this.route.data.subscribe(data => { ... })`
 
 <details>
 <summary><b>Answer</b></summary>
 
 #### Answer: B
 
-With Tailwind CSS 4, you use the modern Sass syntax: `@use "tailwindcss";` instead of the deprecated `@import` syntax.
+The modern way to access route parameters is using `paramMap`: `this.route.paramMap.subscribe(paramMap => { const username = paramMap.get('username'); })`. This provides better type safety and is the recommended approach.
 </details>
 
 ---
 
-### 9. What is the purpose of the `imports` array in Angular 20 standalone components?
+### 4. What decorator is used to make a service injectable in Angular?
 
-- A: To import other components
-- B: To declare dependencies
-- C: To specify which modules/components this component uses
-- D: To import services
-
-<details>
-<summary><b>Answer</b></summary>
-
-#### Answer: C
-
-The `imports` array in standalone components specifies which modules, components, or directives this component depends on, eliminating the need for NgModule declarations.
-</details>
-
----
-
-### 10. Which Tailwind CSS utility class is used for responsive design breakpoints?
-
-- A: `sm:`, `md:`, `lg:`, `xl:`
-- B: `mobile:`, `tablet:`, `desktop:`
-- C: `xs:`, `sm:`, `md:`, `lg:`
-- D: `phone:`, `pad:`, `laptop:`
-
-<details>
-<summary><b>Answer</b></summary>
-
-#### Answer: A
-
-Tailwind CSS uses `sm:`, `md:`, `lg:`, `xl:` prefixes for responsive design breakpoints. For example: `md:flex-row` applies flex-row only on medium screens and larger.
-</details>
-
----
-
-### 11. What is the correct way to style Angular Material buttons with custom CSS?
-
-- A: Use `@apply` directive
-- B: Use standard CSS properties
-- C: Use inline styles only
-- D: Use Angular Material theming only
+- A: `@Service()`
+- B: `@Injectable()`
+- C: `@Inject()`
+- D: `@Provider()`
 
 <details>
 <summary><b>Answer</b></summary>
 
 #### Answer: B
 
-With Tailwind CSS 4, it's better to use standard CSS properties instead of `@apply` for Material component overrides:
-```css
-.mat-raised-button {
-  border-radius: 0.5rem;
-  padding: 0.5rem 1.5rem;
-  font-weight: 500;
-}
-```
+The `@Injectable()` decorator is used to make a service injectable in Angular. It tells Angular's dependency injection system that this class can be injected into other components or services.
 </details>
 
 ---
 
-### 12. Which Angular CLI command generates a standalone component?
+### 5. How do you configure HTTP client in Angular's application config?
 
-- A: `ng g component --standalone`
-- B: `ng g c --standalone`
-- C: `ng generate component --standalone`
-- D: All of the above
+- A: `provideHttpClient()` in the providers array
+- B: `importHttpClient()` in the imports array
+- C: `configureHttpClient()` in the configuration object
+- D: `setupHttpClient()` in the setup function
+
+<details>
+<summary><b>Answer</b></summary>
+
+#### Answer: A
+
+HTTP client is configured by adding `provideHttpClient()` to the providers array in the application configuration. This enables HTTP functionality throughout the application.
+</details>
+
+---
+
+### 6. What is the correct way to perform programmatic navigation in Angular?
+
+- A: `this.router.go(['/portfolio'])`
+- B: `this.router.navigate(['/portfolio'])`
+- C: `this.router.redirect(['/portfolio'])`
+- D: `this.router.move(['/portfolio'])`
+
+<details>
+<summary><b>Answer</b></summary>
+
+#### Answer: B
+
+Programmatic navigation is done using `this.router.navigate(['/portfolio'])`. This method takes an array of route segments and navigates to the specified route.
+</details>
+
+---
+
+### 7. How do you handle errors in RxJS observables when making HTTP requests?
+
+- A: Using `catchError` operator with `of()` for fallback values
+- B: Using `throwError` operator to re-throw the error
+- C: Using `error` callback in the subscribe method only
+- D: Using try-catch blocks around the observable
+
+<details>
+<summary><b>Answer</b></summary>
+
+#### Answer: A
+
+Error handling in RxJS observables is done using the `catchError` operator with `of()` to provide fallback values: `.pipe(catchError(error => { console.error('Error:', error); return of(null); }))`.
+</details>
+
+---
+
+### 8. What is the purpose of the `providedIn: 'root'` option in the `@Injectable` decorator?
+
+- A: It makes the service available only in the root component
+- B: It creates a singleton instance available throughout the application
+- C: It restricts the service to root-level components only
+- D: It makes the service available only in the app module
+
+<details>
+<summary><b>Answer</b></summary>
+
+#### Answer: B
+
+`providedIn: 'root'` creates a singleton instance of the service that is available throughout the entire application. This is the most common way to provide services in Angular.
+</details>
+
+---
+
+### 9. How do you configure lazy loading for components in Angular routes?
+
+- A: `{ path: 'portfolio', component: Portfolio }`
+- B: `{ path: 'portfolio', loadComponent: () => import('./portfolio').then(m => m.Portfolio) }`
+- C: `{ path: 'portfolio', lazyLoad: Portfolio }`
+- D: `{ path: 'portfolio', async: Portfolio }`
+
+<details>
+<summary><b>Answer</b></summary>
+
+#### Answer: B
+
+Lazy loading is configured using `loadComponent` with a dynamic import: `{ path: 'portfolio', loadComponent: () => import('./portfolio').then(m => m.Portfolio) }`. This loads the component only when the route is accessed.
+</details>
+
+---
+
+### 10. What is the correct way to inject a service into an Angular component?
+
+- A: `constructor(service: MyService) {}`
+- B: `constructor(private service: MyService) {}`
+- C: `constructor(public service: MyService) {}`
+- D: All of the above are correct
 
 <details>
 <summary><b>Answer</b></summary>
 
 #### Answer: D
 
-All three commands are valid ways to generate a standalone component in Angular. The `--standalone` flag creates a component with `standalone: true` property.
+All of the above are correct ways to inject a service. The `private`, `public`, or no access modifier can be used depending on whether you need to access the service from the template or other components.
 </details>
 
 ---
