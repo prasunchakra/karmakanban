@@ -40,8 +40,8 @@ export class PortfolioBuilder implements OnInit {
     private router: Router
   ) {
     this.portfolioForm = this.fb.group({
-      isPublic: [false],
-      industry: [INDUSTRIES_ENUM.EIT, Validators.required],
+      isPublic: [{value: false, disabled: true}],
+      industry: [INDUSTRIES_ENUM.Technology_Information_and_Media, Validators.required],
       heroData: this.fb.group({
         name: ['', [Validators.required, Validators.minLength(2)]],
         title: ['', [Validators.required, Validators.minLength(1)]],
@@ -54,8 +54,8 @@ export class PortfolioBuilder implements OnInit {
       aboutData: this.fb.group({
         whoIAmDescription: ['', Validators.required],
         additionalDescription: ['', Validators.required], 
-        email: ['', [Validators.required, Validators.email]],
-        location: ['', Validators.required],
+        pronouns: [''],
+        location: [''],
         education: ['', Validators.required],
         image: ['', Validators.required]
       }),
@@ -73,33 +73,24 @@ export class PortfolioBuilder implements OnInit {
         projects: this.fb.array([this.createProjectItem()])
       }),
       contactData: this.fb.group({
-        title: ['', Validators.required],
-        description: ['', Validators.required],
-        form: this.fb.group({
-          nameLabel: ['', Validators.required],
-          emailLabel: ['', Validators.required],
-          subjectLabel: ['', Validators.required],
-          messageLabel: ['', Validators.required],
-          submitButton: ['', Validators.required]
-        }),
-        contactInfo: this.fb.group({
-          title: ['', Validators.required],
-          items: this.fb.array([this.createContactInfoItem()])
-        }),
-        social: this.fb.group({
-          title: ['', Validators.required],
-          links: this.fb.array([this.createSocialLink()])
-        })
+        email: ['', [Validators.required, Validators.email]],
+        phoneNumber: [''],
+        facebook: [''],
+        instagram: [''],
+        linkedin: [''],
+        twitter: [''],
+        github: [''],
+        youtube: ['']
       }),
     });
   }
 
   ngOnInit() {
-    console.log('Form initialized:', this.portfolioForm);
-    console.log('Hero data group:', this.portfolioForm.get('heroData'));
-    console.log('Hero name control:', this.portfolioForm.get('heroData.name'));
+    
   }
-
+  navigateToPortfolioGallery() {
+    this.router.navigate(['/portfolio']);
+  }
   onSubmit() {
     console.log(this.portfolioForm.value);
     const profile = this.portfolioForm.value;

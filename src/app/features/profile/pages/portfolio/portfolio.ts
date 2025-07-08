@@ -9,7 +9,7 @@ import { ProfileFooter } from '../../components/profile-footer';
 import { PortfolioService } from '../../../../services/portfolio.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProfileData } from '../../../../types/portfolio';
-import { HEADER_DATA, INDUSTRY_ICONS } from '../../../../types/profile';
+import { HEADER_DATA } from '../../../../types/profile';
 
 @Component({
   selector: 'app-portfolio',
@@ -69,7 +69,7 @@ export class Portfolio implements OnInit {
       headerData: {
         ...HEADER_DATA,
         name: profileData.heroData.name,
-        icon: INDUSTRY_ICONS[profileData.industry as keyof typeof INDUSTRY_ICONS],
+        icon: 'person',
       },
       heroData: {
         name: profileData.heroData.name,
