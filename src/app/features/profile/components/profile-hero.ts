@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-profile-hero',
-  imports: [MatButtonModule],
+  imports: [MatButtonModule, MatIconModule],
   template: `
   <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 mb-10 md:mb-0">
@@ -17,11 +18,9 @@ import { MatButtonModule } from '@angular/material/button';
             {{ heroData.description }}
           </p>
           <div class="flex space-x-4">
-            <button mat-raised-button color="primary">
-              {{ heroData.primaryButton }}
-            </button>
-            <button mat-stroked-button color="accent">
-              {{ heroData.secondaryButton }}
+            <button mat-raised-button color="primary" class="cursor-pointer">
+              <mat-icon class="mr-2">download</mat-icon>
+              Download Resume
             </button>
           </div>
         </div>

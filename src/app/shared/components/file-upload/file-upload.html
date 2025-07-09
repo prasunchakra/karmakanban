@@ -1,0 +1,71 @@
+<div class="file-upload-container">
+  <div
+    class="upload-area"
+    [class.dragover]="isDragOver"
+    [class.has-file]="fileUrl"
+    (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave($event)"
+    (drop)="onDrop($event)"
+    (click)="fileInput.click()"
+  >
+    <input
+      #fileInput
+      type="file"
+      [accept]="accept"
+      [multiple]="multiple"
+      (change)="onFileSelected($event)"
+      style="display: none"
+    />
+
+    @if (!fileUrl) {
+    <div class="upload-placeholder">
+      <mat-icon class="upload-icon">cloud_upload</mat-icon>
+      <p class="upload-text">{{ placeholder }}</p>
+      <p class="upload-hint">Click to browse or drag and drop</p>
+    </div>
+    } @else {
+    <div class="file-preview">
+      @if (isImage) {
+      <img [src]="fileUrl" [alt]="fileName" class="preview-image" />
+      } @else {
+      <mat-icon class="file-icon">description</mat-icon>
+      }
+      <div class="file-info">
+        <p class="file-name">{{ fileName }}</p>
+        <p class="file-size">{{ fileSize }}</p>
+      </div>
+    </div>
+    }
+  </div>
+
+  @if (isUploading) {
+  <div class="upload-progress">
+    <mat-progress-bar
+      mode="determinate"
+      [value]="uploadProgress"
+    ></mat-progress-bar>
+    <p class="progress-text">Uploading... {{ uploadProgress }}%</p>
+  </div>
+  } @if (fileUrl) {
+  <div class="upload-actions">
+    <button
+      mat-button
+      color="primary"
+      (click)="fileInput.click()"
+      class="change-btn"
+    >
+      <mat-icon>edit</mat-icon>
+      Change
+    </button>
+    <button mat-button color="warn" (click)="removeFile()" class="remove-btn">
+      <mat-icon>delete</mat-icon>
+      Remove
+    </button>
+  </div>
+  } @if (error) {
+  <div class="error-message">
+    <mat-icon class="error-icon">error</mat-icon>
+    <span>{{ error }}</span>
+  </div>
+  }
+</div>
