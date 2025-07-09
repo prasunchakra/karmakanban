@@ -50,12 +50,22 @@
           </div>
         </mat-card-header>
         <mat-card-content class="p-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 mt-6">
-            <mat-form-field appearance="fill" class="w-full">
-              <mat-label>Your Name</mat-label>
-              <input matInput formControlName="name">
+          <div class="flex gap-6 mb-6 mt-6">
+            <mat-form-field appearance="fill" class="flex-1">
+              <mat-label>First Name</mat-label>
+              <input matInput formControlName="firstName">
               <mat-icon matSuffix>person</mat-icon>
-              @if (portfolioForm.get('heroData.name')?.hasError('required')) {
+              @if (portfolioForm.get('heroData.firstName')?.hasError('required')) {
+                <mat-error>
+                  Name is required
+                </mat-error>
+              }
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="flex-1">
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="lastName">
+              <mat-icon matSuffix>person</mat-icon>
+              @if (portfolioForm.get('heroData.lastName')?.hasError('required')) {
                 <mat-error>
                   Name is required
                 </mat-error>
@@ -135,13 +145,13 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 mt-6">
             <mat-form-field appearance="fill" class="w-full">
               <mat-label>Highest Professional Qualification</mat-label>
-              <input matInput formControlName="education" required>
+              <input matInput formControlName="professionalQualification" required>
               <mat-icon matSuffix>work</mat-icon>
             </mat-form-field>
 
             <mat-form-field appearance="fill" class="w-full">
               <mat-label>Highest Academic Qualification</mat-label>
-              <input matInput formControlName="location" required>
+              <input matInput formControlName="academicQualification" required>
               <mat-icon matSuffix>school</mat-icon>
             </mat-form-field>
           </div>
@@ -207,6 +217,11 @@
           </div>
         </mat-card-header>
         <mat-card-content class="p-8">
+          <mat-form-field appearance="fill" class="w-full mb-6 mt-6">
+            <mat-label>Describe your skills, what you are good at, what you are passionate about, etc.</mat-label>
+            <textarea matInput formControlName="description" rows="2" required></textarea>
+            <mat-icon matSuffix>description</mat-icon>
+          </mat-form-field>
           <div formArrayName="categories" class="mt-6">
             @for(category of categories.controls; track category; let i = $index) {
             <div [formGroupName]="i" class="mb-8 p-6 border-2 border-purple-100 rounded-xl bg-gradient-to-r from-purple-50 to-white">
@@ -230,25 +245,35 @@
                 </mat-form-field>
               </div>
   
-              <div formArrayName="skills" class="mt-6">
+                            <div formArrayName="skills" class="mt-6">
                 <div class="flex justify-between items-center mb-4">
-                  <h5 class="font-bold text-lg text-gray-700">Skills</h5>
-                  <button mat-stroked-button color="primary" (click)="addSkill(i)" type="button" class="rounded-lg">
-                    <mat-icon>add</mat-icon> Add Skill
+                  <h5 class="font-bold text-lg text-gray-700 flex items-center">
+                    <span class="material-icons text-sm mr-2">star</span>
+                    Skills
+                  </h5>
+                  <button mat-stroked-button color="primary" (click)="addSkill(i)" type="button" class="rounded-lg h-9">
+                    <mat-icon class="text-sm">add</mat-icon> Add Skill
                   </button>
                 </div>
-  
-                @for(skill of getSkills(i).controls; track skill; let j = $index) {
-                <div class="flex items-center gap-3 mb-3">
-                  <mat-form-field appearance="fill" class="flex-grow">
-                    <input matInput [formControlName]="j" required>
-                    <mat-icon matSuffix>star</mat-icon>
-                  </mat-form-field>
-                  <button mat-icon-button color="warn" (click)="removeSkill(i, j)" type="button" class="hover:bg-red-50">
-                    <mat-icon>close</mat-icon>
-                  </button>
-                </div>
-                }
+
+                                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    @for(skill of getSkills(i).controls; track skill; let j = $index) {
+                    <div class="relative group">
+                      <div class="flex items-center bg-slate-200 border border-gray-200 rounded-lg px-3 py-2 hover:border-purple-300 hover:shadow-sm transition-all duration-200">
+                        <input [formControlName]="j" 
+                               class="flex-1 text-sm border-0 outline-none bg-transparent placeholder-gray-400"
+                               placeholder="Enter skill"
+                               required>
+                        <button mat-icon-button color="warn" 
+                                (click)="removeSkill(i, j)" 
+                                type="button" 
+                                class="h-6 w-6 min-w-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-50">
+                          <mat-icon class="text-sm">close</mat-icon>
+                        </button>
+                      </div>
+                    </div>
+                    }
+                  </div>
               </div>
             </div>
             }
@@ -316,23 +341,33 @@
 
                 <div formArrayName="technologies" class="md:col-span-2">
                   <div class="flex justify-between items-center mb-4">
-                    <h5 class="font-bold text-lg text-gray-700">Technologies</h5>
-                    <button mat-stroked-button color="primary" (click)="addTechnology(i)" type="button" class="rounded-lg">
-                      <mat-icon>add</mat-icon> Add Technology
+                    <h5 class="font-bold text-lg text-gray-700 flex items-center">
+                      <span class="material-icons text-sm mr-2">memory</span>
+                      Technologies
+                    </h5>
+                    <button mat-stroked-button color="primary" (click)="addTechnology(i)" type="button" class="rounded-lg h-9">
+                      <mat-icon class="text-sm">add</mat-icon> Add Technology
                     </button>
                   </div>
 
-                  @for(tech of getTechnologies(i).controls; track tech; let j = $index) {
-                  <div class="flex items-center gap-3 mb-3">
-                    <mat-form-field appearance="fill" class="flex-grow">
-                      <input matInput [formControlName]="j" required>
-                      <mat-icon matSuffix>memory</mat-icon>
-                    </mat-form-field>
-                    <button mat-icon-button color="warn" (click)="removeTechnology(i, j)" type="button" class="hover:bg-red-50">
-                      <mat-icon>close</mat-icon>
-                    </button>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    @for(tech of getTechnologies(i).controls; track tech; let j = $index) {
+                    <div class="relative group">
+                      <div class="flex items-center bg-slate-200 border border-gray-200 rounded-lg px-3 py-2 hover:border-green-300 hover:shadow-sm transition-all duration-200">
+                        <input [formControlName]="j" 
+                               class="flex-1 text-sm border-0 outline-none bg-transparent placeholder-gray-400"
+                               placeholder="Enter technology"
+                               required>
+                        <button mat-icon-button color="warn" 
+                                (click)="removeTechnology(i, j)" 
+                                type="button" 
+                                class="h-6 w-6 min-w-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-50">
+                          <mat-icon class="text-sm">close</mat-icon>
+                        </button>
+                      </div>
+                    </div>
+                    }
                   </div>
-                  }
                 </div>
               </div>
             </div>

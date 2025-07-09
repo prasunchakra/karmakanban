@@ -43,7 +43,8 @@ export class PortfolioBuilder implements OnInit {
       isPublic: [{value: false, disabled: true}],
       industry: [INDUSTRIES_ENUM.Technology_Information_and_Media, Validators.required],
       heroData: this.fb.group({
-        name: ['', [Validators.required, Validators.minLength(2)]],
+        firstName: ['', [Validators.required, Validators.minLength(2)]],
+        lastName: ['', [Validators.required, Validators.minLength(2)]],
         title: ['', [Validators.required, Validators.minLength(1)]],
         specialization: ['', Validators.required],
         description: ['', Validators.required],
@@ -54,22 +55,19 @@ export class PortfolioBuilder implements OnInit {
       aboutData: this.fb.group({
         whoIAmDescription: ['', Validators.required],
         additionalDescription: ['', Validators.required], 
-        pronouns: [''],
-        location: [''],
-        education: ['', Validators.required],
+        professionalQualification: ['', Validators.required],
+        academicQualification: ['', Validators.required],
+        pronouns: ['', Validators.required],
+        location: ['', Validators.required],
         image: ['', Validators.required]
       }),
       skillData: this.fb.group({
-        title: ['', Validators.required],
+        title: ['My Skills'],
         description: ['', Validators.required],
         categories: this.fb.array([this.createSkillCategory()])
       }),
       projectData: this.fb.group({
-        title: ['', Validators.required],
-        description: ['', Validators.required],
-        demoText: ['', Validators.required],
-        sourceText: ['', Validators.required],
-        viewAllButton: ['', Validators.required],
+        metadata: [''],
         projects: this.fb.array([this.createProjectItem()])
       }),
       contactData: this.fb.group({
@@ -115,7 +113,11 @@ export class PortfolioBuilder implements OnInit {
     return this.fb.group({
       title: ['', Validators.required],
       icon: ['', Validators.required],
-      skills: this.fb.array([this.fb.control('', Validators.required)])
+      skills: this.fb.array([
+        this.fb.control('', Validators.required),
+        this.fb.control('', Validators.required),
+        this.fb.control('', Validators.required)
+      ])
     });
   }
   
@@ -148,7 +150,11 @@ export class PortfolioBuilder implements OnInit {
     return this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      technologies: this.fb.array([this.fb.control('', Validators.required)]),
+      technologies: this.fb.array([
+        this.fb.control('', Validators.required),
+        this.fb.control('', Validators.required),
+        this.fb.control('', Validators.required)
+      ]),
       demoLink: ['', Validators.required],
       sourceLink: ['', Validators.required],
       image: ['', Validators.required]

@@ -102,3 +102,11 @@
 ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled).mdc-text-field--focused .mat-mdc-select-arrow {
   color: #00bcd4 !important;
 }
+
+::ng-deep .mat-mdc-select-panel {
+  background-color: #e2e8f0 !important;
+  color: #1e293b !important;
+}
+::ng-deep .mat-mdc-select-panel .mat-mdc-option {
+  color: #1e293b !important;
+}

@@ -10,42 +10,57 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   template: `
     <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">{{ projectData.title }}</h2>
-        <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
-          {{ projectData.description }}
-        </p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          @for (project of projectData.projects; track project.title) {
-          <mat-card class="overflow-hidden hover:shadow-lg transition">
-            <img mat-card-image [src]="project.image" [alt]="project.title">
-            <mat-card-content>
-              <h3 class="text-xl font-semibold text-gray-200 mb-2">{{ project.title }}</h3>
-              <p class="text-gray-100 mb-4">
-                {{ project.description }}
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @for (project of projectData.projects; track project.title) {
+        <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200">
+          <!-- Project Header with Gradient -->
+          <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-6 text-white">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-bold">{{ project.title }}</h3>
+              <span class="material-icons text-2xl opacity-80">code</span>
+            </div>
+            <div class="w-12 h-1 bg-white rounded-full opacity-60"></div>
+          </div>
+          
+          <!-- Project Content -->
+          <div class="p-6">
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              {{ project.description }}
+            </p>
+            
+            <!-- Technologies -->
+            <div class="mb-6">
+              <h4 class="text-sm font-semibold text-gray-700 mb-3 flex items-center">
+                <span class="material-icons text-sm mr-2">build</span>
+                Technologies
+              </h4>
+              <div class="flex flex-wrap gap-2">
                 @for (tech of project.technologies; track tech) {
-                <span class="px-2 py-1 primary-light-bg primary-text text-xs rounded-full">
+                <span class="px-3 py-1 bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 text-xs font-medium rounded-full border border-blue-200">
                   {{ tech }}
                 </span>
                 }
               </div>
-            </mat-card-content>
-            <mat-card-actions class="flex justify-between px-4 pb-4">
-              <a [href]="project.demoLink" class="primary-text hover:underline">{{ projectData.demoText }}</a>
-              <a [href]="project.sourceLink" class="text-gray-600 hover:underline">{{ projectData.sourceText }}</a>
-            </mat-card-actions>
-          </mat-card>
-          }
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="flex gap-3">
+              <a [href]="project.demoLink" 
+                 class="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-3 rounded-lg text-sm font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-200 flex items-center justify-center group-hover:shadow-md h-12">
+                <span class="material-icons text-sm mr-2">visibility</span>
+                {{ projectData.demoText }}
+              </a>
+              <a [href]="project.sourceLink" 
+                 class="flex-1 bg-gray-100 text-gray-700 px-4 py-3 rounded-lg text-sm font-medium hover:bg-gray-200 transition-all duration-200 flex items-center justify-center group-hover:shadow-md h-12">
+                <span class="material-icons text-sm mr-2">code</span>
+                {{ projectData.sourceText }}
+              </a>
+            </div>
+          </div>
         </div>
-        
-        <div class="text-center mt-12">
-          <button mat-stroked-button color="accent">
-            {{ projectData.viewAllButton }}
-          </button>
-        </div>
+        }
       </div>
+    </div>
   `,
   styles: ``
 })

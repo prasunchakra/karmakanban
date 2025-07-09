@@ -12,7 +12,9 @@ export class PortfolioService {
 
   getProfileData(username: string): Observable<ProfileData | null> {
     if(username === 'currentUser') {
-      return of(JSON.parse(localStorage.getItem('profile') || '{}'));
+      const profile = JSON.parse(localStorage.getItem('profile') || '{}');
+      localStorage.clear();
+      return of(profile);
     }
     return this.http.get<any>('/data/profile.json').pipe(
       map((data) => {

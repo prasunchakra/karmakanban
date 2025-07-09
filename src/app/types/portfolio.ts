@@ -11,6 +11,8 @@ import { INDUSTRIES_ENUM } from "./profile";
  }
  export interface HeroData {
   name: string;
+  firstName: string;
+  lastName: string;
   title: string;
   specialization: string;
   description: string;
@@ -20,11 +22,13 @@ import { INDUSTRIES_ENUM } from "./profile";
  }
   export interface AboutData {
     image: string;
+    name: string;
     whoIAmDescription: string;
     additionalDescription: string;
-    email: string;
+    professionalQualification: string;
+    academicQualification: string;
+    pronouns: string;
     location: string;
-    education: string;
   }
   export interface SkillData {
     title: string;
@@ -36,11 +40,7 @@ import { INDUSTRIES_ENUM } from "./profile";
     }[];
   }
   export interface ProjectData {
-    title: string;
     description: string;
-    demoText: string;
-    sourceText: string;
-    viewAllButton: string;
     projects: {
       title: string;
       description: string;
@@ -51,40 +51,17 @@ import { INDUSTRIES_ENUM } from "./profile";
     }[];
   }
   export interface ContactData {
-    title: string;
-    description: string;
-    form: {
-      nameLabel: string;
-      emailLabel: string;
-      subjectLabel: string;
-      messageLabel: string;
-      submitButton: string;
-    };
-    contactInfo: {
-      title: string;
-      items: {
-        icon: string;
-        label: string;
-        value: string;
-      }[];
-    };
-    social: {
-      title: string;
-      links: {
-        icon: string;
-        label: string;
-        link: string;
-      }[];
-    };
+    email: string;
+    phoneNumber: string;
+    facebook: string;
+    linkedin: string;
+    twitter: string;
+    github: string;
   }
   export interface FooterData {
     name: string;
     icon: string;
     copyright: string;
-    socialLinks: {
-      icon: string;
-      link: string;
-    }[];
   }
   export interface ProfileData {
     isPublic: boolean;

@@ -17,56 +17,77 @@ import { MatInputModule } from '@angular/material/input';
           <div class="md:w-1/2">
             <form class="space-y-6">
               <mat-form-field class="w-full">
-                <mat-label>{{ contactData.form.nameLabel }}</mat-label>
+                <mat-label>{{ contactLabels.name }}</mat-label>
                 <input matInput type="text" required>
               </mat-form-field>
               
               <mat-form-field class="w-full">
-                <mat-label>{{ contactData.form.emailLabel }}</mat-label>
+                <mat-label>{{ contactLabels.email }}</mat-label>
                 <input matInput type="email" required>
               </mat-form-field>
               
               <mat-form-field class="w-full">
-                <mat-label>{{ contactData.form.subjectLabel }}</mat-label>
+                <mat-label>{{ contactLabels.subject }}</mat-label>
                 <input matInput type="text" required>
               </mat-form-field>
               
               <mat-form-field class="w-full">
-                <mat-label>{{ contactData.form.messageLabel }}</mat-label>
+                <mat-label>{{ contactLabels.message }}</mat-label>
                 <textarea matInput rows="5" required></textarea>
               </mat-form-field>
               
               <button mat-raised-button color="primary" class="w-full md:w-auto">
-                {{ contactData.form.submitButton }}
+                {{ contactLabels.submit }}
               </button>
             </form>
           </div>
           
           <div class="md:w-1/2">
             <div class="bg-white p-8 rounded-lg shadow-sm h-full">
-              <h3 class="text-xl font-semibold text-gray-800 mb-6">{{ contactData.contactInfo.title }}</h3>
+              <h3 class="text-xl font-semibold text-gray-800 mb-6">{{ contactLabels.contactInfo }}</h3>
               
               <div class="space-y-6">
-                @for (info of contactData.contactInfo.items; track info.icon) {
-                <div class="flex items-start">
-                  <span class="material-icons primary-text text-2xl mr-4">{{ info.icon }}</span>
-                  <div>
-                    <h4 class="text-gray-600 font-medium">{{ info.label }}</h4>
-                    <p class="text-gray-700">{{ info.value }}</p>
+                <div class="space-y-6">
+                  <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                    <span class="material-icons text-blue-600">email</span>
+                    <div>
+                      <h4 class="text-gray-600 font-medium text-sm">Email</h4>
+                      <p class="text-gray-700 font-medium">{{ contactData.email }}</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                    <span class="material-icons text-green-600">phone</span>
+                    <div>
+                      <h4 class="text-gray-600 font-medium text-sm">Phone</h4>
+                      <p class="text-gray-700 font-medium">{{ contactData.phoneNumber }}</p>
+                    </div>
                   </div>
                 </div>
-                }
               </div>
               
               <div class="mt-8">
-                <h4 class="text-gray-600 font-medium mb-4">{{ contactData.social.title }}</h4>
-                <div class="flex space-x-4">
-                  @for (social of contactData.social.links; track social.icon) {
-                    <a [href]="social.link" 
-                       [class]="'w-10 h-10 rounded-full ' + social.bgClass + ' flex items-center justify-center ' + social.textClass + ' hover:bg-opacity-80 transition'">
-                      <span class="material-icons">{{ social.icon }}</span>
-                    </a>
-                  }
+                <h4 class="text-gray-600 font-medium mb-4">{{ contactLabels.social }}</h4>
+                <div class="space-y-3">
+                  <a href="{{ contactData.facebook }}" class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors duration-200">
+                    <span class="material-icons text-xl">facebook</span>
+                    <span class="text-sm font-medium">Facebook</span>
+                    <span class="text-xs text-gray-500 ml-auto">{{ contactData.facebook.split('/').pop() }}</span>
+                  </a>
+                  <a href="{{ contactData.linkedin }}" class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg text-blue-400 hover:bg-blue-50 transition-colors duration-200">
+                    <span class="material-icons text-xl">work</span>
+                    <span class="text-sm font-medium">LinkedIn</span>
+                    <span class="text-xs text-gray-500 ml-auto">{{ contactData.linkedin.split('/').pop() }}</span>
+                  </a>
+                  <a href="{{ contactData.twitter }}" class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg text-grey-200 hover:bg-blue-50 transition-colors duration-200">  
+                    <span class="material-icons text-xl">chat</span>
+                    <span class="text-sm font-medium">Twitter</span>
+                    <span class="text-xs text-gray-500 ml-auto">{{ contactData.twitter.split('/').pop() }}</span>
+                  </a>
+                  <a href="{{ contactData.github }}" class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg text-black-400 hover:bg-blue-50 transition-colors duration-200">
+                    <span class="material-icons text-xl">code</span>
+                    <span class="text-sm font-medium">GitHub</span>
+                    <span class="text-xs text-gray-500 ml-auto">{{ contactData.github.split('/').pop() }}</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -78,4 +99,13 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class ProfileContact {
   @Input() contactData: any;
+  contactLabels = {
+    name: 'Name',
+    email: 'Email',
+    subject: 'Subject',
+    message: 'Message',
+    submit: 'Submit',
+    contactInfo: 'Contact Information',
+    social: 'Social Media Profiles',
+  }
 }

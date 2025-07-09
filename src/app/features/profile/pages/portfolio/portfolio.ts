@@ -64,15 +64,19 @@ export class Portfolio implements OnInit {
       }
     });
   }
-  mapProfileData(profileData: ProfileData): any {
+  mapProfileData(profileData: ProfileData): ProfileData {
     return {
+      isPublic: profileData.isPublic,
+      industry: profileData.industry,
       headerData: {
         ...HEADER_DATA,
-        name: profileData.heroData.name,
+        name: `${profileData.heroData.firstName} ${profileData.heroData.lastName}`,
         icon: 'person',
       },
       heroData: {
-        name: profileData.heroData.name,
+        name: `${profileData.heroData.firstName} ${profileData.heroData.lastName}`,
+        firstName: profileData.heroData.firstName,
+        lastName: profileData.heroData.lastName,
         title: profileData.heroData.title,
         specialization: profileData.heroData.specialization,
         description: profileData.heroData.description,
@@ -81,13 +85,36 @@ export class Portfolio implements OnInit {
         secondaryButton: profileData.heroData.secondaryButton,
       },
       aboutData: {
-        name: profileData.heroData.name,
+        name: `${profileData.heroData.firstName} ${profileData.heroData.lastName}`,
         whoIAmDescription: profileData.aboutData.whoIAmDescription,
         additionalDescription: profileData.aboutData.additionalDescription,
-        email: profileData.aboutData.email,
-        location: profileData.aboutData.location,
-        education: profileData.aboutData.education,
+        professionalQualification: profileData.aboutData.professionalQualification,
+        academicQualification: profileData.aboutData.academicQualification,
         image: profileData.aboutData.image,
+        pronouns: profileData.aboutData.pronouns,
+        location: profileData.aboutData.location, 
+      },
+      skillData: {
+        title: profileData.skillData.title,
+        description: profileData.skillData.description,
+        categories: profileData.skillData.categories,
+      },
+      projectData: {
+        description: profileData.projectData.description,
+        projects: profileData.projectData.projects,
+      },
+      contactData: {
+        email: profileData.contactData.email,
+        phoneNumber: profileData.contactData.phoneNumber,
+        facebook: profileData.contactData.facebook,
+        linkedin: profileData.contactData.linkedin,
+        twitter: profileData.contactData.twitter,
+        github: profileData.contactData.github,
+      },
+      footerData: {
+        name:`${profileData.heroData.firstName} ${profileData.heroData.lastName}`,
+        icon: 'person',
+        copyright: `© ${new Date().getFullYear()} ${profileData.heroData.firstName} ${profileData.heroData.lastName}. All rights reserved.`,
       },
     }
   }

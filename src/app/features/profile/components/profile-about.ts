@@ -1,10 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-profile-about',
-  imports: [MatButtonModule, MatIconModule],
+  imports: [MatButtonModule],
   template: `
     <div class="container mx-auto px-6">
         <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">About Me</h2>
@@ -29,27 +28,14 @@ import { MatIconModule } from '@angular/material/icon';
             
             <div class="grid grid-cols-2 gap-4 mb-8">
               <div class="flex items-center">
-                <span class="material-icons primary-text mr-2">person</span>
-                <span class="text-gray-700">{{ aboutData.name }}</span>
-              </div>
-              <div class="flex items-center">
-                <span class="material-icons primary-text mr-2">email</span>
-                <span class="text-gray-700">{{ aboutData.email }}</span>
-              </div>
-              <div class="flex items-center">
-                <span class="material-icons primary-text mr-2">location_on</span>
-                <span class="text-gray-700">{{ aboutData.location }}</span>
+                <span class="material-icons primary-text mr-2">work</span>
+                <span class="text-gray-700">{{ aboutData.professionalQualification }}</span>
               </div>
               <div class="flex items-center">
                 <span class="material-icons primary-text mr-2">school</span>
-                <span class="text-gray-700">{{ aboutData.education }}</span>
+                <span class="text-gray-700">{{ aboutData.academicQualification }}</span>
               </div>
             </div>
-            
-            <button mat-raised-button color="primary">
-              <mat-icon class="mr-2">download</mat-icon>
-              Download Resume
-            </button>
           </div>
         </div>
       </div>
